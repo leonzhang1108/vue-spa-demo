@@ -2,10 +2,10 @@
  * Created by leon on 2016/4/25.
  */
 var path = require('path');
+var vue = require("vue-loader");
 var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var vue = require("vue-loader");
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
 var entry = ['./src/js/entry/vue-entry-demo.js'],

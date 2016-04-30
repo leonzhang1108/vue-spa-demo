@@ -9,6 +9,7 @@ global._ = require('underscore')
 require("../../css/vue-demo.css");
 global.Vue = require('vue')
 require("bootstrap/dist/js/bootstrap.min.js");
+require("font-awesome-webpack");
 require('../../../node_modules/purecss/build/pure-min.css');
 require('../../css/layouts/side-menu.css');
 //国际化

@@ -42,7 +42,7 @@ var plugins = [
         disable: false
     }),
     new webpack.ProvidePlugin({
-        //$: 'jquery',
+        $: 'jquery',
         jQuery: 'jquery'
     }),
     new uglifyJsPlugin({
@@ -51,7 +51,8 @@ var plugins = [
         compress: {
             warnings: false
         }
-    })
+    }),
+    new webpack.optimize.DedupePlugin()
 ];
 
 module.exports = {
