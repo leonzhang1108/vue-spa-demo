@@ -2,12 +2,11 @@
  * Created by leon on 2016/4/23.
  */
 
-//global.$ = global.jQuery = require('jquery');
-require("bootstrap/dist/css/bootstrap.css");
 global.ES = require('../common/ui')
 global._ = require('underscore')
-require("../../css/vue-demo.css");
 global.Vue = require('vue')
+require("../../css/vue-demo.css");
+require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
 require("font-awesome-webpack");
 require('../../../node_modules/purecss/build/pure-min.css');

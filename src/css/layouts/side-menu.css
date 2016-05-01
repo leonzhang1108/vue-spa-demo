@@ -124,7 +124,7 @@ Change color of the anchor links on hover/focus.
 */
 #menu .pure-menu li a:hover,
 #menu .pure-menu li a:focus {
-    background: #1f8dd6;
+    background: #1b628e;
 }
 
 /*
@@ -262,6 +262,21 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     margin-top: -22px;
     float: right;
 }
-.menu_current .trangle {
-    display: block !important;
+
+.menu_current {
+    background: #1b628e;
+}
+
+.menu_current .trangle,
+.menu_current .current_menu_color_bar{
+    display: block;
+}
+
+.current_menu_color_bar {
+    width: 5px;
+    height: 100%;
+    display: none;
+    position: absolute;
+    background: #f99904;
+    z-index: 1;
 }
