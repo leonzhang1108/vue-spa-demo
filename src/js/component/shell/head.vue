@@ -1,6 +1,8 @@
 <template>
-    <div class="container-fluid">
-        <img :src="logo">
+    <div id="shell-header">
+        <div class="container-fluid">
+            <img :src="logo">
+        </div>
     </div>
 </template>
 
