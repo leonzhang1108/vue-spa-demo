@@ -15,10 +15,6 @@
 
 <script>
     module.exports = {
-        mixins: [require('vue-resize-mixin')],
-        events: {
-            'resize': 'onResize'
-        },
         data: function () {
             return {
                 menus: [{
@@ -60,11 +56,6 @@
                     }
                 })
                 this.menus = currentMenus
-            },
-            onResize: function (event) {
-                $('#router-view').css({
-                    height: event.height - $('#shell-header').height() - $('.vue-breadcrumb').height() - 1
-                })
             }
         }
     }
