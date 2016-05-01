@@ -50,7 +50,6 @@
         },
         methods: {
             clickToCurrent: function (item) {
-                console.log(item.target.hash)
                 var current = item.target.hash
                 var currentMenus = this.menus
                 $.each(this.menus, function (index, menu) {
@@ -62,9 +61,9 @@
                 })
                 this.menus = currentMenus
             },
-            onResize: function(event) {
+            onResize: function (event) {
                 $('#router-view').css({
-                    height: event.height
+                    height: event.height - $('#shell-header').height() - $('.vue-breadcrumb').height() - 1
                 })
             }
         }
