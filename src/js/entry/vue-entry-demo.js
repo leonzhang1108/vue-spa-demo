@@ -19,16 +19,11 @@ global.localize_ja = require('../common/localize/ja');
 require.ensure(['vue', 'vue-router','vue-i18n'], function (require) {
 
     // init shell
-    var vueHead = require('bundle?lazy!../component/shell/head.vue')
-    var vueMenu = require('bundle?lazy!../component/shell/menu.vue')
-    var vueBreadcrumb = require('bundle?lazy!../component/shell/breadcrumb.vue')
-    Vue.component('vue-head', vueHead)
-    Vue.component('vue-menu', vueMenu)
-    Vue.component('vue-breadcrumb', vueBreadcrumb)
+    var vueShell = require('../component/shell/shell.vue')
+    Vue.component('vue-shell', vueShell)
 
     // Locale
     var VueLocale = require('vue-i18n')
-
     var localize = {};
     localize.ja = localize_ja;
     localize.zh = localize_zh;
@@ -36,15 +31,8 @@ require.ensure(['vue', 'vue-router','vue-i18n'], function (require) {
     Vue.use(VueLocale,{locales:localize});
     Vue.config.lang = 'zh';
 
-    //init all components
-    var VueRouter = require('vue-router')
-    var Home = require('bundle?lazy!../component/home.vue');
-    var About = require('bundle?lazy!../component/about.vue');
-    var Services = require('bundle?lazy!../component/services.vue');
-    var Parent = require('bundle?lazy!../component/leon/parent.vue');
-    var Watch = require('bundle?lazy!../component/watch.vue');
-    var Vuex = require('bundle?lazy!../component/vuex/vuexapp.vue');
-    var Table = require('bundle?lazy!../component/table/tableapp.vue');
+    var VueRouter = require('vue-router');
+
     var paging = require('../component/paging/paging.vue')
     var zPagenav = require('vue-pagenav')
 
@@ -54,47 +42,16 @@ require.ensure(['vue', 'vue-router','vue-i18n'], function (require) {
     Vue.use(zPagenav)
     Vue.use(VueRouter)
 
-    var Bar = Vue.extend({
-        template: '<p>This is bar!</p>'
+    var router = new VueRouter({
+        hashbang: true,  //为true的时候 example.com/#!/foo/bar ， false的时候 example.com/#/foo/bar
+        //abstract:true,  //地址栏不会有变化
+        //以下设置需要服务端设置
+        //history: false,   //当使用 HTML5 history 模式时，服务器需要被正确配置 以防用户在直接访问链接时会遇到404页面。
+        //saveScrollPosition: false
+        linkActiveClass:'custom-active-class' //全局设置连接匹配时的类名 参考http://vuejs.github.io/vue-router/en/link.html
     })
 
-    var App = Vue.extend({})
-
-    var router = new VueRouter()
-
-    router.map({
-        '/home': {
-            component: Home,
-            subRoutes: {
-                '/services': {
-                    component: Services
-                },
-                '/calender': {
-                    component: Home
-                }
-            }
-        },
-        '/about': {
-            component: About
-        },
-        "/contact": {
-            component: Bar
-        },
-        "/services": {
-            component: Services
-        },
-        "/calender": {
-            component: Vuex
-        },
-        "/test": {
-            component: Watch
-        },
-        "/table": {
-            component: Table
-        }
-    })
-
-    router.start(App, '#app')
-
-
+    require('./routers.js')(router);
+    
+    router.start(Vue.extend(), '#app')
 })

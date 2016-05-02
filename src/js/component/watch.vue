@@ -8,19 +8,21 @@
             {{lastName}}
             <input v-model="lastName" @click='changeColor'/>
         </div>
-        <div v-bind:class="colorClass">{{fullName}}</div>
+        <div v-bind:class="colorClass" @click='changeRouter'>{{fullName}}</div>
         <div id="insertPlace"></div>
     </div>
 </template>
 <script>
 
+    var VueRouter = require('vue-router')
+    Vue.use(VueRouter)
 
     module.exports = {
         data: function () {
             return {
                 firstName: 'leon',
                 lastName: 'zhang',
-                colorClass:{
+                colorClass: {
                     red: true,
                     blue: false
                 }
@@ -31,14 +33,14 @@
                 return this.firstName + ' ' + this.lastName
             }
         },
-        methods:{
-            changeColor: function(){
+        methods: {
+            changeColor: function () {
                 this.colorClass = {
                     red: !this.colorClass.red,
                     blue: !this.colorClass.blue
                 }
             },
-            insertFunction :function(){
+            insertFunction: function () {
 
                 var mounting = require('./mounting.vue')
                 var Profile = Vue.extend(mounting)
@@ -48,21 +50,29 @@
                         firstName: this.firstName,
                         lastName: this.lastName
                     },
-                    methods: {
-
-                    }
+                    methods: {}
                 })
                 // 挂载到元素上
                 profile.$mount('#insertPlace');
+            },
+            changeRouter: function () {
+                console.log(VueRouter)
+//                VueRouter.go({
+//                    name: 'services',
+//                    params: {
+//                        userId: 123
+//                    }
+//                })
             }
         }
     }
 </script>
 <style>
-    .red{
+    .red {
         color: red;
     }
-    .blue{
+
+    .blue {
         color: blue;
     }
 </style>

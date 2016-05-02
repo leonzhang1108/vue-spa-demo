@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid" id="menu">
         <div class="pure-menu">
-            <a class="pure-menu-heading" href="#">VUE - DEMO</a>
+            <a class="pure-menu-heading" href="#" @click="clickToCurrent">VUE - DEMO</a>
             <ul class="pure-menu-list">
                 <li class="pure-menu-item" v-bind:class="{'menu_current': menu.current}" v-for="menu in menus">
                     <div class="current_menu_color_bar"></div>
@@ -40,6 +40,10 @@
                 }, {
                     path: '/table',
                     name: '表格demo',
+                    current: false
+                }, {
+                    path: '/forbidden',
+                    name: '',
                     current: false
                 }]
             }
