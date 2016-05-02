@@ -14,7 +14,9 @@
     var vueHead = require('bundle?lazy!./head.vue')
     var vueMenu = require('bundle?lazy!./menu.vue')
     var vueBreadcrumb = require('bundle?lazy!./breadcrumb.vue')
+    var store = require("../../vuex/shell/store");
     module.exports = {
+        store,
         components: {
             vueHead,
             vueMenu,

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import { updateActiveNote } from '../../../vuex/actions'
+    import { updateActiveNote } from '../../../vuex/vuexapp/actions'
 
     module.exports = {
         data() {

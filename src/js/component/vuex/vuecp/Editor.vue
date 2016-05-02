@@ -7,13 +7,13 @@
 </template>
 
 <script>
-    import { editNote } from '../../../vuex/actions'
+    import {editNote} from '../../../vuex/vuexapp/actions'
 
     module.exports = {
         vuex: {
             getters: {
                 activeNoteText: state => state.activeNote.text,
-                count: function(state) {
+                count: function (state) {
                     return state.count
                 }
             },
@@ -21,7 +21,7 @@
                 editNote
             }
         },
-        data: function (){
+        data: function () {
             return {
                 counts: 10
             }

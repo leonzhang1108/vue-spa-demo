@@ -13,7 +13,7 @@
 </template>
 
 <script>
-    import { addNote, deleteNote, toggleFavorite } from '../../../vuex/actions'
+    import { addNote, deleteNote, toggleFavorite } from '../../../vuex/vuexapp/actions'
 
     module.exports = {
         vuex: {

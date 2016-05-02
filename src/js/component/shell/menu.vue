@@ -3,7 +3,7 @@
         <div class="pure-menu">
             <a class="pure-menu-heading" href="#" @click="clickToCurrent">VUE - DEMO</a>
             <ul class="pure-menu-list">
-                <li class="pure-menu-item" v-bind:class="{'menu_current': menu.current}" v-for="menu in menus">
+                <li class="pure-menu-item" @click="breadcrumbChange" v-bind:class="{'menu_current': menu.current}" v-for="menu in menus">
                     <div class="current_menu_color_bar"></div>
                     <a class="pure-menu-link" v-link="{ path: menu.path }" @click="clickToCurrent">{{menu.name}}</a>
                     <span class="trangle"></span>
@@ -14,7 +14,14 @@
 </template>
 
 <script>
+    var storeAction =  require('../../vuex/shell/actions')
+    var breadcrumbChange = storeAction.breadcrumbChange
     module.exports = {
+        vuex: {
+            actions: {
+                breadcrumbChange
+            }
+        },
         data: function () {
             return {
                 menus: [{
