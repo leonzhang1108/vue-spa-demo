@@ -1,7 +1,7 @@
 <template>
     <div class="vue-breadcrumb">
         <i class="fa fa-map-marker"></i>
-        <span>hello 面包屑  {{currentMenu}}</span>
+        <span>{{currentMenu}}</span>
     </div>
 </template>
 <script>
@@ -9,7 +9,6 @@
     var storeAction =  require('../../vuex/shell/actions')
     var breadcrumbChange = storeAction.breadcrumbChange
     module.exports = {
-
         vuex: {
             getters: {
                 currentMenu: function (state) {
@@ -26,7 +25,6 @@
                 $('#router-view').css({
                     height: event.height - $('#shell-header').height() - $('.vue-breadcrumb').height() - 1
                 })
-                console.log(this.currentMenu)
             }
         }
     }

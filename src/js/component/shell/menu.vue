@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid" id="menu">
         <div class="pure-menu">
-            <a class="pure-menu-heading" href="#" @click="clickToCurrent">VUE - DEMO</a>
+            <a class="pure-menu-heading" href="#" @click="breadcrumbChange">VUE - DEMO</a>
             <ul class="pure-menu-list">
                 <li class="pure-menu-item" @click="breadcrumbChange" v-bind:class="{'menu_current': menu.current}" v-for="menu in menus">
                     <div class="current_menu_color_bar"></div>
@@ -18,41 +18,13 @@
     var breadcrumbChange = storeAction.breadcrumbChange
     module.exports = {
         vuex: {
+            getters: {
+                menus: function (state) {
+                    return state.menus
+                },
+            },
             actions: {
                 breadcrumbChange
-            }
-        },
-        data: function () {
-            return {
-                menus: [{
-                    path: '/services',
-                    name: '货物状态',
-                    current: false
-                }, {
-                    path: '/home',
-                    name: '货物详情',
-                    current: false
-                }, {
-                    path: '/about',
-                    name: '账单制作',
-                    current: false
-                }, {
-                    path: '/calender',
-                    name: '账单详情',
-                    current: false
-                }, {
-                    path: '/test',
-                    name: '场站物料管理',
-                    current: false
-                }, {
-                    path: '/table',
-                    name: '表格demo',
-                    current: false
-                }, {
-                    path: '/forbidden',
-                    name: '',
-                    current: false
-                }]
             }
         },
         methods: {
@@ -66,7 +38,6 @@
                         currentMenus[index].current = false
                     }
                 })
-                this.menus = currentMenus
             }
         }
     }

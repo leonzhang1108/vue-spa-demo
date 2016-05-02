@@ -6,6 +6,5 @@ Object.defineProperty(exports, "__esModule", {
 
 var breadcrumbChange = exports.breadcrumbChange = function breadcrumbChange(ref, e) {
     var dispatch = ref.dispatch;
-    console.log(e);
     dispatch('BREADCRUMB_CHANGE',e.target.innerHTML);
 };
