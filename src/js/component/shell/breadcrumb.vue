@@ -1,7 +1,7 @@
 <template>
     <div class="vue-breadcrumb">
         <i class="fa fa-map-marker"></i>
-        <span>{{currentMenu}}</span>
+        <span>{{$route.name}}</span>
     </div>
 </template>
 <script>

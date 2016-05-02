@@ -18,6 +18,6 @@
             activate: function (transition) {
                 transition.next();
             }
-        },
+        }
     };
 </script>

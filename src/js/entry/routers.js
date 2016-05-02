@@ -48,7 +48,6 @@ module.exports = function(router){
             name:"table",
             component: Table
         },
-        // not found handler
         '*': {
             component: require('../component/shell/not_found.vue')
         },
@@ -99,6 +98,7 @@ module.exports = function(router){
     //可以记录访问路径
     router.afterEach(function(transition){
         console.log('-----------------after');
+
         for (var i = 0; i < routeList.length; i++) {
             console.log(routeList[i].name);
         };

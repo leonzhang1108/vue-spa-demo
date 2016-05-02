@@ -32,14 +32,22 @@ var state = {
         current: false
     }, {
         path: '/forbidden',
-        name: '',
+        name: 'forbidden',
         current: false
     }]
 };
 
 var mutations = {
-    BREADCRUMB_CHANGE: function BREADCRUMB_CHANGE(state, text) {
-        state.currentMenu = text;
+    BREADCRUMB_CHANGE: function BREADCRUMB_CHANGE(state, current) {
+        var currentMenus = state.menus
+        $.each(state.menus, function (index, menu) {
+            if (current.indexOf(menu.path) > 0) {
+                currentMenus[index].current = true
+            } else {
+                currentMenus[index].current = false
+            }
+        })
+        state.menus = currentMenus
     }
 };
 

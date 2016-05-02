@@ -260,7 +260,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     border-color: transparent #ececec transparent transparent;
     position: relative;
     display: none;
-    margin-top: -22px;
+    margin-top: -17px;
     float: right;
 }
 
@@ -276,6 +276,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 .current_menu_color_bar {
     width: 5px;
     height: 100%;
+    margin: -8px 0px 0px -7px;
     display: none;
     position: absolute;
     background: #f99904;
