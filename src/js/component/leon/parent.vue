@@ -4,10 +4,6 @@
     </div>
 </template>
 <script>
-    var Vue = require('vue')
-    var Vuex = require('vuex')
-    Vue.use(Vuex)
-
     var state = {
         count: 0
     }

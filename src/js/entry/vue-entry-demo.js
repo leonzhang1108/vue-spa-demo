@@ -5,6 +5,7 @@
 global.ES = require('../common/ui')
 global._ = require('underscore')
 global.Vue = require('vue')
+global.Vuex = require('vuex')
 require("../../css/vue-demo.css");
 require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
@@ -41,7 +42,7 @@ require.ensure(['vue', 'vue-router','vue-i18n'], function (require) {
     zPagenav.default.template = paging.template
     Vue.use(zPagenav)
     Vue.use(VueRouter)
-
+    Vue.use(Vuex)
     var router = new VueRouter({
         hashbang: true,  //为true的时候 example.com/#!/foo/bar ， false的时候 example.com/#/foo/bar
         //abstract:true,  //地址栏不会有变化

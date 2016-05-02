@@ -1,12 +1,17 @@
 <template>
     <div class="vue-breadcrumb">
         <i class="fa fa-map-marker"></i>
-        <span>hello 面包屑</span>
+        <span>hello 面包屑  {{currentMenu}}</span>
     </div>
 </template>
 <script>
     require('../../../css/layouts/breadcrumb.css')
     module.exports = {
+        data: function () {
+            return {
+                currentMenu:'lalala'
+            }
+        },
         mixins: [require('vue-resize-mixin')],
         events: {
             'resize': 'onResize'

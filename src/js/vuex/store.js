@@ -4,11 +4,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var Vue = require('vue');
-var Vuex = require('vuex');
-
-Vue.use(Vuex);
-
 var state = {
     notes: [],
     activeNote: {},
