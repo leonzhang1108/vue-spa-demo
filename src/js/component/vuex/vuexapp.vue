@@ -7,15 +7,17 @@
 </template>
 
 <script>
-import Toolbar from './vuecp/Toolbar.vue'
-import NotesList from './vuecp/NotesList.vue'
-import Editor from './vuecp/Editor.vue'
+  var Toolbar = require('./vuecp/Toolbar.vue');
+  var NotesList = require('./vuecp/NotesList.vue');
+  var Editor = require('./vuecp/Editor.vue');
 
-export default {
-  components: {
-    Toolbar,
-    NotesList,
-    Editor
+  var store = require("../../vuex/vuexapp/store");
+  module.exports = {
+    store,
+    components: {
+      Toolbar,
+      NotesList,
+      Editor
+    }
   }
-}
 </script>

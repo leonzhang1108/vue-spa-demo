@@ -1,26 +1,28 @@
 <template>
-  <div id="toolbar">
-    <i @click="addNote" class="glyphicon glyphicon-plus"></i>
-    <i @click="toggleFavorite"
-      class="glyphicon glyphicon-star"
-      :class="{starred: activeNote.favorite}"></i>
-    <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
-  </div>
+    <div id="toolbar">
+        <i @click="addNote" class="glyphicon glyphicon-plus"></i>
+        <i @click="toggleFavorite"
+           class="glyphicon glyphicon-star"
+           :class="{starred: activeNote.favorite}"></i>
+        <i @click="deleteNote" class="glyphicon glyphicon-remove"></i>
+    </div>
 </template>
 
 <script>
-import { addNote, deleteNote, toggleFavorite } from '../../../vuex/vuexapp/actions'
+    var actions = require('../../../vuex/vuexapp/actions');
 
-export default {
-  vuex: {
-    getters: {
-      activeNote: state => state.activeNote
-    },
-    actions: {
-      addNote,
-      deleteNote,
-      toggleFavorite
+    module.exports = {
+        vuex: {
+            getters: {
+                activeNote: function(state) {
+                    return state.activeNote
+                }
+            },
+            actions: {
+                addNote: actions.addNote,
+                deleteNote: actions.deleteNote,
+                toggleFavorite: actions.deleteNote
+            }
+        }
     }
-  }
-}
 </script>

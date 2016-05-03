@@ -1,19 +1,35 @@
-export const addNote = ({ dispatch }) => {
-  dispatch('ADD_NOTE')
-}
+'use strict';
 
-export const editNote = ({ dispatch }, e) => {
-  dispatch('EDIT_NOTE', e.target.value)
-}
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-export const deleteNote = ({ dispatch }) => {
-  dispatch('DELETE_NOTE')
-}
+var addNote = exports.addNote = function addNote(ref) {
+    var dispatch = ref.dispatch;
 
-export const updateActiveNote = ({ dispatch }, note) => {
-  dispatch('SET_ACTIVE_NOTE', note)
-}
+    dispatch('ADD_NOTE');
+};
 
-export const toggleFavorite = ({ dispatch }) => {
-  dispatch('TOGGLE_FAVORITE')
-}
+var editNote = exports.editNote = function editNote(ref, e) {
+    var dispatch = ref.dispatch;
+
+    dispatch('EDIT_NOTE', e.target.value);
+};
+
+var deleteNote = exports.deleteNote = function deleteNote(ref) {
+    var dispatch = ref.dispatch;
+
+    dispatch('DELETE_NOTE');
+};
+
+var updateActiveNote = exports.updateActiveNote = function updateActiveNote(ref, note) {
+    var dispatch = ref.dispatch;
+
+    dispatch('SET_ACTIVE_NOTE', note);
+};
+
+var toggleFavorite = exports.toggleFavorite = function toggleFavorite(ref) {
+    var dispatch = ref.dispatch;
+    console.log(ref);
+    dispatch('TOGGLE_FAVORITE');
+};
