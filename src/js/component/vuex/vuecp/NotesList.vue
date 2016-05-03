@@ -7,13 +7,13 @@
                 <!-- All Notes button -->
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default" @click="show = 'all'" :class="{active: show === 'all'}">
-                        All Notes
+                        全部邮件
                     </button>
                 </div>
                 <!-- Favorites Button -->
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-default" @click="show = 'favorites'" :class="{active: show === 'favorites'}">
-                        Favorites
+                        红旗邮件
                     </button>
                 </div>
             </div>
@@ -21,7 +21,7 @@
         <!-- render notes in a list -->
         <div class="container">
             <div class="list-group">
-                <a v-for="note in filteredNotes" class="list-group-item" href="#!/services" :class="{active: activeNote === note}" @click="updateActiveNote(note)">
+                <a v-for="note in filteredNotes" class="list-group-item" href="#!/calender" :class="{active: activeNote === note}" @click="updateActiveNote(note)">
                     <h4 class="list-group-item-heading">
             {{note.text.trim().substring(0, 30)}}
           </h4>

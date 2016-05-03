@@ -176,8 +176,7 @@ small screens.
     padding: 2.1em 1.6em;
 }
 
-.menu-link:hover,
-.menu-link:focus {
+.menu-link:hover {
     background: #1b628e;
 }
 

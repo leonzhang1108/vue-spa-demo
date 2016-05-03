@@ -8,32 +8,25 @@ var state = {
     currentMenu: 'index',
     menus: [{
         path: '/services',
-        name: '货物状态',
-        current: false
+        name: '货物状态'
     }, {
         path: '/home',
-        name: '货物详情',
-        current: false
+        name: '货物详情'
     }, {
         path: '/about',
-        name: '账单制作',
-        current: false
+        name: '账单制作'
     }, {
         path: '/calender',
-        name: '账单详情',
-        current: false
+        name: '账单详情'
     }, {
         path: '/test',
-        name: '场站物料管理',
-        current: false
+        name: '场站物料管理'
     }, {
         path: '/table',
-        name: '表格demo',
-        current: false
+        name: '表格demo'
     }, {
         path: '/forbidden',
-        name: 'forbidden',
-        current: false
+        name: 'forbidden'
     }]
 };
 
@@ -45,7 +38,7 @@ var mutations = {
                 currentMenus[index].current = true
             } else {
                 currentMenus[index].current = false
-            }
+        }
         })
         state.menus = currentMenus
     }

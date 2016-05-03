@@ -1,19 +1,21 @@
 <template>
     <div id="note-editor">
-        <input :value="count"/>
+        <!-- <input :value="count"/> -->
         <textarea :value="activeNoteText" @input="editNote" class="form-control">
         </textarea>
     </div>
 </template>
 
 <script>
-    import {editNote} from '../../../vuex/vuexapp/actions'
+    import { editNote } from '../../../vuex/vuexapp/actions'
 
     module.exports = {
         vuex: {
             getters: {
-                activeNoteText: state => state.activeNote.text,
-                count: function (state) {
+                activeNoteText: function(state) {
+                    return state.activeNote.text
+                },
+                count: function(state) {
                     return state.count
                 }
             },
@@ -21,7 +23,7 @@
                 editNote
             }
         },
-        data: function () {
+        data: function (){
             return {
                 counts: 10
             }

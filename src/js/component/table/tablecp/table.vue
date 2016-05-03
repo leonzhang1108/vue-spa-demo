@@ -2,23 +2,29 @@
     module.exports = {
         methods: {
             displayHtml(display, item) {
-                const type = typeof display;
-                if (type === 'string') {
+                const t = typeof display;
+                if (t === 'string') {
                     return item[display];
+
                 }
-                if (type === 'function') {
+                if (t === 'function') {
                     return display(item);
                 }
                 throw new Error('display must be a string or function.');
             },
             pagesizeChange: function (el) {
                 this.pageSize = parseInt(el.target.value);
+            },
+            changeLocalize: function (e) {
+                Vue.config.lang = e;
             }
         },
         props: ["dataOption", "dataColumns"],
         data: function () {
             var option = JSON.parse(this.dataOption);
-            console.log(this.dataColumns)
+            console.log()
+            var dataColumns = '[' + this.dataColumns + ']';
+            dataColumns = eval("(" + dataColumns + ")");
             return {
                 dataList: {},
                 pageSize: 10,
@@ -26,40 +32,7 @@
                 maxlink: 5,
                 eventName: "custom",
                 noResultsMsg: option.noResultsMsg,
-                columns: [
-                    {
-                        title: '物流状态',
-                        display: 'productItemTrackStatus'
-                    },
-                    {
-                        title: '收货单位',
-                        display: 'consignee'
-                    },
-                    {
-                        title: '规格',
-                        display: 'dimension'
-                    },
-                    {
-                        title: '物料号',
-                        display: 'itemNumber'
-                    },
-                    {
-                        title: '钢牌号',
-                        display: 'material'
-                    },
-                    {
-                        title: '生产订单号',
-                        display: 'productOrderNumber'
-                    },
-                    {
-                        title: '品名',
-                        display: 'productName'
-                    },
-                    {
-                        title: '目的港',
-                        display: 'pod'
-                    }
-                ],
+                columns: dataColumns,
                 requestData: {
                     blNo: "",
                     cargoReleaseStatusId: null,
@@ -71,7 +44,7 @@
                     itemNumber: "",
                     loadType: "",
                     orderFieldDto: null,
-                    page: this.page,
+                    page: 1,
                     pageSize: this.pageSize,
                     podCode: "",
                     productItemTrackStatusId: null,
@@ -103,7 +76,8 @@
         events: {
             //pageNav load data
             custom: function (page) {
-                this.page = page;
+                console.log(this)
+                this.requestData.page = page;
                 var option = JSON.parse(this.dataOption);
                 var url = option.dataPath;
                 this.$http({
@@ -138,8 +112,8 @@
             <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :total.sync="dataList.total" ,
                       :max-link.sync="maxlink" :event-name="eventName"></zpagenav>
             <div class="pageDec">
-                <span class="paging-info"> 页码：{{page}}/{{Math.ceil(dataList.total/pageSize)}}&nbsp;&nbsp;总共：{{dataList.total}}</span>
-                <span class="paging-info"> 每页显示：
+                <span class="paging-info">{{ $t('message.pagenav', { page:page,sumPage:dataList.total,pagesize:Math.ceil(dataList.total/pageSize)}) }}</span>                
+                <span class="paging-info"> {{ $t("message.eachPageShow") }}：
                 <select id="paging-size-select" @change="pagesizeChange">
                     <option value="10" selected>10</option>
                     <option value="20">20</option>
@@ -150,6 +124,11 @@
 
         </div>
     </div>
+    <span>Localize:</span>
+    <h1>{{ $t("message.hello") }}</h1>
+    <button @click="changeLocalize('ja')">JA</button>
+    <button @click="changeLocalize('zh')">ZH</button>
+    <button @click="changeLocalize('en')">EN</button>
 </template>
 
 <style>
