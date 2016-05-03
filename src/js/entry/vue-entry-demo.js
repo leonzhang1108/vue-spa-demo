@@ -15,7 +15,7 @@ require('../../../node_modules/purecss/build/pure-min.css');
 require('../../css/layouts/side-menu.css');
 //国际化
 global.localize = {};
-require.ensure(['vue', 'vue-router', 'vue-i18n'], function (require) {
+require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (require) {
 
     // init shell
     var vueShell = require('../component/shell/shell.vue')
@@ -35,13 +35,13 @@ require.ensure(['vue', 'vue-router', 'vue-i18n'], function (require) {
     var zPagenav = require('vue-pagenav')
 
     Vue.use(require('vue-resource'))
+    Vue.use(require('vue-form'))
 
     zPagenav.default.template = paging.template
     Vue.use(zPagenav)
     Vue.use(VueRouter)
 
-    var Vuex = require('vuex')
-    Vue.use(Vuex)
+    Vue.use(require('vuex'))
     var router = new VueRouter({
         hashbang: true,  //为true的时候 example.com/#!/foo/bar ， false的时候 example.com/#/foo/bar
         //abstract:true,  //地址栏不会有变化

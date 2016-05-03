@@ -9,6 +9,7 @@ module.exports = function(router){
     var Watch = require('bundle?lazy!../component/watch.vue');
     var Vuex = require('bundle?lazy!../component/vuex/vuexapp.vue');
     var Table = require('bundle?lazy!../component/table/tableapp.vue');
+    var Form = require('bundle?lazy!../component/form/form.vue');
     router.map({
         '/': {
             name:"index",
@@ -48,12 +49,16 @@ module.exports = function(router){
             name:"table",
             component: Table
         },
-        '*': {
-            component: require('../component/shell/not_found.vue')
+        "/form": {
+            name:"form",
+            component: Form
         },
         '/forbidden':{
             name:'forbidden',
             component: require('../component/shell/forbidden.vue')
+        },
+        '*': {
+            component: require('../component/shell/not_found.vue')
         },
     })
 

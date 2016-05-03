@@ -25,6 +25,9 @@ var state = {
         path: '/table',
         name: '表格demo'
     }, {
+        path: '/form',
+        name: '表单DEMO'
+    }, {
         path: '/forbidden',
         name: 'forbidden'
     }]

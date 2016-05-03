@@ -1,7 +1,7 @@
 <template>
     <h1 style="font-size: 30px;font-weight: bold;text-align: center;margin-bottom:20px;">页面竟然找不到，工程师们表示很惊讶，Σ( ° △
         °|||)︴</h1>
-    <img style="margin-bottom:50px;margin-left:auto;margin-right:auto;"
+    <img style="clear: both;display: block;margin: auto;"
          :src="not_found_page" alt="一海通 Eshipping"
          title="内容没找到，Σ( ° △ °|||)︴">
 </template>
