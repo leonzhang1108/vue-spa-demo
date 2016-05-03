@@ -15,11 +15,11 @@
             pagesizeChange: function (el) {
                 this.pageSize = parseInt(el.target.value);
             },
-            getData: function(){
+            getData: function () {
                 var option = JSON.parse(this.dataOption);
-                var requestData ='{blNo:"",cargoReleaseStatusId:null,consigneeId:"",containerNumber:"",etdFrom:"",etdTo:"",hasBlocked:false,itemNumber:"",loadType:"",orderFieldDto:null,page:'+this.page+',pageSize:'+this.pageSize+',podCode:"",productItemTrackStatusId:null,productName:"",productOrderNumber:"",productSubNumber:"",receivingWay:"",secondCustomerId:null,vessel:"",voyage:""}'; 
-                var url = option.dataPath;   
-                requestData = eval("(" + requestData + ")");  
+                var requestData = '{blNo:"",cargoReleaseStatusId:null,consigneeId:"",containerNumber:"",etdFrom:"",etdTo:"",hasBlocked:false,itemNumber:"",loadType:"",orderFieldDto:null,page:' + this.page + ',pageSize:' + this.pageSize + ',podCode:"",productItemTrackStatusId:null,productName:"",productOrderNumber:"",productSubNumber:"",receivingWay:"",secondCustomerId:null,vessel:"",voyage:""}';
+                var url = option.dataPath;
+                requestData = eval("(" + requestData + ")");
                 this.$http({
                     url: url,
                     method: 'GET',
@@ -33,9 +33,9 @@
         },
         props: ["dataOption", "dataColumns"],
         data: function () {
-            var option = JSON.parse(this.dataOption);            
+            var option = JSON.parse(this.dataOption);
             var dataColumns = '[' + this.dataColumns + ']';
-            dataColumns = eval("(" + dataColumns + ")");                        
+            dataColumns = eval("(" + dataColumns + ")");
             return {
                 dataList: {},
                 pageSize: 10,
@@ -52,7 +52,7 @@
         },
         events: {
             //pageNav load data
-            custom: function (page) { 
+            custom: function (page) {
                 this.page = page;
                 this.getData();
             }
