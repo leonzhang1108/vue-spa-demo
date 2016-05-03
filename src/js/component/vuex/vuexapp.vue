@@ -1,21 +1,21 @@
 <template>
+  <div id="app">
     <toolbar></toolbar>
     <notes-list></notes-list>
     <editor></editor>
+  </div>
 </template>
+
 <script>
+import Toolbar from './vuecp/Toolbar.vue'
+import NotesList from './vuecp/NotesList.vue'
+import Editor from './vuecp/Editor.vue'
 
-var Toolbar = require('./vuecp/Toolbar.vue');
-var NotesList = require('./vuecp/NotesList.vue');
-var Editor = require('./vuecp/Editor.vue');
-
-var store = require("./../../vuex/store");
-module.exports = {
-    store,
-    components: {
-        Toolbar,
-        NotesList,
-        Editor
-    }
+export default {
+  components: {
+    Toolbar,
+    NotesList,
+    Editor
+  }
 }
 </script>

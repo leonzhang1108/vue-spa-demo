@@ -16,7 +16,7 @@ require('../../css/layouts/side-menu.css');
 global.localize_en = require('../common/localize/en');
 global.localize_zh = require('../common/localize/zh');
 global.localize_ja = require('../common/localize/ja');
-
+global.localize = {};
 require.ensure(['vue', 'vue-router', 'vue-i18n'], function (require) {
 
     // init shell
@@ -25,7 +25,7 @@ require.ensure(['vue', 'vue-router', 'vue-i18n'], function (require) {
 
     // Locale
     var VueLocale = require('vue-i18n')
-    var localize = {};
+
     localize.ja = localize_ja;
     localize.zh = localize_zh;
     localize.en = localize_en;
