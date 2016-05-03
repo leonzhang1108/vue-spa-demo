@@ -28,6 +28,7 @@
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.16.0",
     "jquery": "^2.2.3",
+    "jquery-ui": "^1.10.5",
     "less": "^2.6.1",
     "less-loader": "^2.2.3",
     "mkdirp": "^0.5.1",

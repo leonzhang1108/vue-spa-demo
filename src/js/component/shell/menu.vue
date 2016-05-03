@@ -9,7 +9,6 @@
                         <div>{{menu.name}}</div>
                         <span class="trangle"></span>
                     </a>
-
                 </li>
             </ul>
         </div>

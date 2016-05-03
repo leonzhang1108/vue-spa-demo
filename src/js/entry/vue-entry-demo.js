@@ -6,6 +6,7 @@ global.ES = require('../common/ui')
 global._ = require('underscore')
 global.Vue = require('vue')
 global.Vuex = require('vuex')
+require("jquery-ui")
 require("../../css/vue-demo.css");
 require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
@@ -13,9 +14,6 @@ require("font-awesome-webpack");
 require('../../../node_modules/purecss/build/pure-min.css');
 require('../../css/layouts/side-menu.css');
 //国际化
-global.localize_en = require('../common/localize/en');
-global.localize_zh = require('../common/localize/zh');
-global.localize_ja = require('../common/localize/ja');
 global.localize = {};
 require.ensure(['vue', 'vue-router', 'vue-i18n'], function (require) {
 
@@ -25,10 +23,9 @@ require.ensure(['vue', 'vue-router', 'vue-i18n'], function (require) {
 
     // Locale
     var VueLocale = require('vue-i18n')
-
-    localize.ja = localize_ja;
-    localize.zh = localize_zh;
-    localize.en = localize_en;
+    localize.ja = require('../common/localize/ja');
+    localize.zh = require('../common/localize/zh');
+    localize.en = require('../common/localize/en');
     Vue.use(VueLocale, {locales: localize});
     Vue.config.lang = 'zh';
 

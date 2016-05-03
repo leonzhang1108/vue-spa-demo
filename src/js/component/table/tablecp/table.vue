@@ -15,16 +15,27 @@
             pagesizeChange: function (el) {
                 this.pageSize = parseInt(el.target.value);
             },
-            changeLocalize: function (e) {
-                Vue.config.lang = e;
+            getData: function(){
+                var option = JSON.parse(this.dataOption);
+                var requestData ='{blNo:"",cargoReleaseStatusId:null,consigneeId:"",containerNumber:"",etdFrom:"",etdTo:"",hasBlocked:false,itemNumber:"",loadType:"",orderFieldDto:null,page:'+this.page+',pageSize:'+this.pageSize+',podCode:"",productItemTrackStatusId:null,productName:"",productOrderNumber:"",productSubNumber:"",receivingWay:"",secondCustomerId:null,vessel:"",voyage:""}'; 
+                var url = option.dataPath;   
+                requestData = eval("(" + requestData + ")");  
+                this.$http({
+                    url: url,
+                    method: 'GET',
+                    data: requestData
+                }).then(function (response) {
+                    this.dataList = response.data;
+                }, function (response) {
+                    //request error
+                });
             }
         },
         props: ["dataOption", "dataColumns"],
         data: function () {
-            var option = JSON.parse(this.dataOption);
-            console.log()
+            var option = JSON.parse(this.dataOption);            
             var dataColumns = '[' + this.dataColumns + ']';
-            dataColumns = eval("(" + dataColumns + ")");
+            dataColumns = eval("(" + dataColumns + ")");                        
             return {
                 dataList: {},
                 pageSize: 10,
@@ -32,63 +43,18 @@
                 maxlink: 5,
                 eventName: "custom",
                 noResultsMsg: option.noResultsMsg,
-                columns: dataColumns,
-                requestData: {
-                    blNo: "",
-                    cargoReleaseStatusId: null,
-                    consigneeId: "",
-                    containerNumber: "",
-                    etdFrom: "",
-                    etdTo: "",
-                    hasBlocked: false,
-                    itemNumber: "",
-                    loadType: "",
-                    orderFieldDto: null,
-                    page: 1,
-                    pageSize: this.pageSize,
-                    podCode: "",
-                    productItemTrackStatusId: null,
-                    productName: "",
-                    productOrderNumber: "",
-                    productSubNumber: "",
-                    receivingWay: "",
-                    secondCustomerId: null,
-                    vessel: "",
-                    voyage: ""
-                }
+                columns: dataColumns
             }
         },
         ready: function () {
             //first load data
-            var option = JSON.parse(this.dataOption);
-            var url = option.dataPath;
-            this.$http({
-                url: url,
-                method: 'GET',
-                data: this.requestData
-            }).then(function (response) {
-                this.dataList = response.data;
-            }, function (response) {
-                //request error
-            });
-
+            this.getData();
         },
         events: {
             //pageNav load data
-            custom: function (page) {
-                console.log(this)
-                this.requestData.page = page;
-                var option = JSON.parse(this.dataOption);
-                var url = option.dataPath;
-                this.$http({
-                    url: url,
-                    method: 'GET',
-                    data: this.requestData
-                }).then(function (response) {
-                    this.dataList = response.data;
-                }, function (response) {
-                    //request error
-                });
+            custom: function (page) { 
+                this.page = page;
+                this.getData();
             }
         }
     }
@@ -98,8 +64,8 @@
     <div class="admin-table">
         <table>
             <thead>
-            <tr>
-                <th v-for="column in columns" v-html="column.title"></th>
+            <tr class="table-header">
+                <th v-for="column in columns">{{ $t(column.title) }}</th>
             </tr>
             </thead>
             <tbody>
@@ -124,11 +90,6 @@
 
         </div>
     </div>
-    <span>Localize:</span>
-    <h1>{{ $t("message.hello") }}</h1>
-    <button @click="changeLocalize('ja')">JA</button>
-    <button @click="changeLocalize('zh')">ZH</button>
-    <button @click="changeLocalize('en')">EN</button>
 </template>
 
 <style>

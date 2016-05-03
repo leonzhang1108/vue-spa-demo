@@ -4,7 +4,7 @@
         <vue-menu></vue-menu>
         <div id="main">
             <vue-breadcrumb></vue-breadcrumb>
-            <div id="router-view" class="jumbotron">
+            <div id="router-view">
                 <router-view></router-view>
             </div>
         </div>
