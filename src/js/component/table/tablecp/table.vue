@@ -35,9 +35,6 @@
                 }, function (response) {
                     //request error
                 });
-            },
-            onResize: function (event) {
-                console.log(event)
             }
         },
         props: ["dataOption", "dataColumns"],
@@ -58,8 +55,10 @@
         ready: function () {
             //first load data
             this.getData();
+        },
+        compiled: function () {
             //生成移动表头
-            headSticker()
+            $(document).resize()
         },
         events: {
             custom: function (page) {
