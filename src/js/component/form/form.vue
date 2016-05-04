@@ -6,7 +6,7 @@
         <label for="email">Email</label>
         <input type="email" name="email" id="email" value="james2doyle@gmail.com" placeholder="">
         <label for="selection">Selection</label>
-        <select name="selection" id="selection">
+        <select name="selection" id="seleaction">
             <option value="1">Option 1</option>
             <option value="2">Option 2</option>
             <option value="3">Option 3</option>

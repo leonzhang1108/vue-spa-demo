@@ -22,7 +22,22 @@ td {
     background-color: #f9f9f9;
 }
 
-th, td {
+.admin-table table th,
+.admin-table table td{
+    word-break: keep-all;
+    white-space: nowrap;
+    text-align: center;
+}
+.admin-table table tr {
+    border-bottom: 1px solid #dddddd;
+    line-height: 20px;
+}
+.admin-table table td{
+    border-right: 1px solid #dddddd;
+}
+
+tbody tr:nth-child(even) td, tbody tr:nth-child(even) th {
+    background-color: #efefef;
 }
 
 th.active {
