@@ -93,11 +93,7 @@
 </template>
 
 <style>
-    .admin-table {
-        overflow: auto;
-        width: 1200px;
-        float: left;
-    }
+
 
     .pagenav {
         border-radius: 0 0 5px 5px;
