@@ -119,7 +119,6 @@
         width: 100%;
         cursor: pointer;
         padding: 5px;
-        white-space: pre-wrap;
         border-bottom: 1px solid #f3f3f3;
     }
 
