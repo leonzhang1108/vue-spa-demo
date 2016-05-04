@@ -9,7 +9,6 @@
     <input_filter input-type="dropdown" input-name="船名" input-id="vessel" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></input_filter>
     <my_input input-type="text" input-name="航次" input-id="voyage" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
     <date_input input-type="date" input-name="船期" input-id="etd"></date_input>
-
     <my_table data-option='{"dataPath":"../src/js/component/data/table-page1.json"}' data-columns="{title: 'message.productItemTrackStatus',display: 'productItemTrackStatus'},{title:'message.consignee',display:'consignee'},{title:'message.dimension',display:'dimension'},{title:'message.itemNumber',display:'itemNumber'},{title:'message.material',display:'material'},{title:'message.productOrderNumber',display:'productOrderNumber'},{title:'message.productName',display:'productName'},{title:'message.pod',display:'pod'}"></my_table>
 
 </template>

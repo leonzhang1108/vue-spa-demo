@@ -32,6 +32,7 @@
                     data: requestData
                 }).then(function (response) {
                     this.dataList = response.data;
+
                 }, function (response) {
                     //request error
                 });
@@ -55,10 +56,6 @@
         ready: function () {
             //first load data
             this.getData();
-        },
-        compiled: function () {
-            //生成移动表头
-            $(document).resize()
         },
         events: {
             custom: function (page) {

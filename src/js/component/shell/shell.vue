@@ -15,6 +15,7 @@
     var vueMenu = require('bundle?lazy!./menu.vue')
     var vueBreadcrumb = require('bundle?lazy!./breadcrumb.vue')
     var store = require("../../vuex/shell/store");
+    var headSticker = require('../../common/jquery-head-sticker.js')
     module.exports = {
         store,
         components: {
@@ -24,6 +25,9 @@
         }
     }
     $(document).scroll(function () {
+        if($('.sticky-thead:visible').length==0){
+            headSticker()
+        }
         if ($('thead:visible').eq(0).offset()) {
             //活动表头
             var affix = $('.sticky-thead:visible')
