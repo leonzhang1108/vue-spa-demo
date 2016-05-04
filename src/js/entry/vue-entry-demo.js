@@ -2,7 +2,6 @@
  * Created by leon on 2016/4/23.
  */
 
-global.ES = require('../common/ui')
 global._ = require('underscore')
 global.Vue = require('vue')
 global.Vuex = require('vuex')

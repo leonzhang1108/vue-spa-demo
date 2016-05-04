@@ -1,11 +1,17 @@
 <script>
+
+    var headSticker = require('../../../common/jquery-head-sticker.js')
+
     module.exports = {
+        mixins: [require('vue-resize-mixin')],
+        events: {
+            'resize': 'onResize'
+        },
         methods: {
             displayHtml(display, item) {
                 const t = typeof display;
                 if (t === 'string') {
                     return item[display];
-
                 }
                 if (t === 'function') {
                     return display(item);
@@ -29,6 +35,9 @@
                 }, function (response) {
                     //request error
                 });
+            },
+            onResize: function (event) {
+                console.log(event)
             }
         },
         props: ["dataOption", "dataColumns"],
@@ -49,15 +58,18 @@
         ready: function () {
             //first load data
             this.getData();
+            //生成移动表头
+            headSticker()
         },
         events: {
-            //pageNav load data
             custom: function (page) {
                 this.page = page;
                 this.getData();
             }
         }
     }
+
+
 </script>
 
 <template>
@@ -87,20 +99,18 @@
                 </select>
                 </span>
             </div>
-
         </div>
     </div>
 </template>
 
 <style>
-
-
     .pagenav {
         border-radius: 0 0 5px 5px;
         border: 1px solid;
         border-top: 0px;
         background-color: #F9FAFB;
         overflow: auto;
+        margin-top: -24px;
     }
 
     .pagenav nav.zpagenav {

@@ -3,15 +3,15 @@
 }
 
 table {
-    border: 2px solid #42b983;
+    border: 2px solid #1081c7;
     border-radius: 3px;
     width: 100%;
     background-color: #fff;
 }
 
 th {
-    background-color: #42b983;
-    color: rgba(255,255,255,0.66);
+    background-color: #1081c7;
+    color: #FFF;
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -20,24 +20,6 @@ th {
 
 td {
     background-color: #f9f9f9;
-}
-
-.admin-table table th,
-.admin-table table td{
-    word-break: keep-all;
-    white-space: nowrap;
-    text-align: center;
-}
-.admin-table table tr {
-    border-bottom: 1px solid #dddddd;
-    line-height: 20px;
-}
-.admin-table table td{
-    border-right: 1px solid #dddddd;
-}
-
-tbody tr:nth-child(even) td, tbody tr:nth-child(even) th {
-    background-color: #efefef;
 }
 
 th.active {
@@ -77,4 +59,7 @@ th.active .arrow {
     overflow: auto;
     width: 100%;
     float: left;
+}
+.sticky-thead {
+    position: relative;
 }
