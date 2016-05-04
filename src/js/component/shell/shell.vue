@@ -51,7 +51,6 @@
 </script>
 <style>
     #router-view {
-        margin-left: 150px;
         margin-top: 100px;
         background: #ececec;
         padding: 20px;
