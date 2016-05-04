@@ -48,7 +48,9 @@
                 <input id="terms" type="checkbox" v-model="search"> 同意声明
             </label>
 
-            <button type="submit" id="loading" data-loading-text="Loading..." autocomplete="off" @click="doSomething(this)" v-bind:class="{'pure-button-primary': search,'pure-button': true}">检索</button>
+            <button type="submit" id="loading" data-loading-text="Loading..." autocomplete="off"
+                    @click="doSomething(this)" v-bind:class="{'pure-button-primary': search,'pure-button': true}">检索
+            </button>
         </fieldset>
     </div>
     <custom_table :field="fields" :msg="msg" :filter-key="searchQuery"></custom_table>
@@ -62,12 +64,12 @@
     var custom_table = require("./custom_table.vue");
 
     module.exports = {
-        data: function() {
+        data: function () {
             return {
                 msg: "提示信息",
                 search: false,
                 fields: [],
-                fields2: ["h","w","j","Name"],
+                fields2: ["h", "w", "j", "Name"],
                 sk: "",
                 skshow: false,
                 searchQuery: "",
@@ -84,32 +86,32 @@
                     "006": "underscore"
                 },
                 options: [{
-                    id:"001", val:"nodejs"
+                    id: "001", val: "nodejs"
                 }, {
-                    id:"002", val:"express"
+                    id: "002", val: "express"
                 }, {
-                    id:"003", val:"Angular"
+                    id: "003", val: "Angular"
                 }, {
-                    id:"004", val:"Backbone"
+                    id: "004", val: "Backbone"
                 }, {
-                    id:"005", val:"lodash"
+                    id: "005", val: "lodash"
                 }, {
-                    id:"006", val:"underscore"
+                    id: "006", val: "underscore"
                 }]
             }
         },
         methods: {
-            doSomething: function(e) {
+            doSomething: function (e) {
                 console.log(e);
                 if (e.search) {
                     $("#loading").button('loading');
-                            // business logic...
+                    // business logic...
                     var URL = "http://tracking.eshippinggateway.com/ws/tracking/summary?uniqueNo=YHT2461574856&lang=zh-cn&key=QQjxe1mM0bmJ28ppKVXKvQ&_=1461578968825";
                     $.ajax({
                         url: URL,
                         dataType: "jsonp",
                         jsonp: "callback",
-                        success: function(data) {
+                        success: function (data) {
                             $("#loading").button('reset')
                             custom_table.methods.doData(data);
                         }
@@ -118,10 +120,10 @@
                     notie.alert(3, '请同意此声明', 1.5);
                 }
             },
-            focusInput: function (e){
+            focusInput: function (e) {
                 e.skshow = true;
             },
-            blurInput: function (e){
+            blurInput: function (e) {
                 e.skshow = false;
             }
         },

@@ -1,6 +1,3 @@
-/**
-* Created by WangMing on 15/12/9.
-*/
 
 <template>
     <button type="button" class="btn btn-success" data-toggle="modal" v-bind:data-target="'#'+id">
@@ -18,8 +15,8 @@
                     {{code}}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" @click="negative" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" @click="positive" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
@@ -28,7 +25,7 @@
 
 <script>
     module.exports = {
-        props: ['name', 'code', 'id', 'positive', 'negative'],
+        props: ['name', 'code', 'id', 'positive','negative'],
         data: function () {
             return {
                 msg:"这是主页的页面"

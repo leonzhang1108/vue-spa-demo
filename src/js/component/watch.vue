@@ -56,7 +56,7 @@
                 profile.$mount('#insertPlace');
             },
             changeRouter: function () {
-                console.log(VueRouter)
+                console.log(VueRouter())
 //                VueRouter.go({
 //                    name: 'services',
 //                    params: {

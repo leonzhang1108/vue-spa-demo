@@ -27,9 +27,6 @@ require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (
     localize.en = require('../common/localize/en');
     Vue.use(VueLocale, {locales: localize});
     Vue.config.lang = 'zh';
-
-    var VueRouter = require('vue-router');
-
     var paging = require('../component/paging/paging.vue')
     var zPagenav = require('vue-pagenav')
 
@@ -37,11 +34,12 @@ require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (
     Vue.use(require('vue-form'))
 
     zPagenav.default.template = paging.template
+    var VueRouter = require('vue-router');
     Vue.use(zPagenav)
     Vue.use(VueRouter)
 
     Vue.use(require('vuex'))
-    var router = new VueRouter({
+    global.router = new VueRouter({
         hashbang: true,  //为true的时候 example.com/#!/foo/bar ， false的时候 example.com/#/foo/bar
         //abstract:true,  //地址栏不会有变化
         //以下设置需要服务端设置
@@ -53,4 +51,5 @@ require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (
     require('./routers.js')(router);
 
     router.start(Vue.extend(), '#app')
+
 })

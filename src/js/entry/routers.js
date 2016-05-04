@@ -3,13 +3,13 @@
  */
 module.exports = function(router){
     var Index= require('bundle?lazy!../component/shell/index.vue')
-    var Home = require('bundle?lazy!../component/home.vue');
     var About = require('bundle?lazy!../component/about.vue');
     var Services = require('bundle?lazy!../component/services.vue');
     var Watch = require('bundle?lazy!../component/watch.vue');
     var Vuex = require('bundle?lazy!../component/vuex/vuexapp.vue');
     var Table = require('bundle?lazy!../component/table/tableapp.vue');
     var Form = require('bundle?lazy!../component/form/form.vue');
+    var Brotherhood = require('bundle?lazy!../component/brotherhood.vue');
     router.map({
         '/': {
             name:"index",
@@ -17,17 +17,7 @@ module.exports = function(router){
         },
         '/home': {
             name:"home",
-            component: Home,
-            subRoutes: {
-                '/services': {
-                    name:"services",
-                    component: Services
-                },
-                '/calender': {
-                    name:"calender",
-                    component: Home
-                }
-            }
+            component: Brotherhood
         },
         '/about': {
             name:"about",
@@ -35,7 +25,13 @@ module.exports = function(router){
         },
         "/services": {
             name:"services",
-            component: Services
+            component: Services,
+            subRoutes: {
+                '/:name': {
+                    name:"services",
+                    component: Services,
+                }
+            }
         },
         "/calender": {
             name:"calender",
