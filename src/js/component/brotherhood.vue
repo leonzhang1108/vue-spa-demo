@@ -11,7 +11,8 @@
         <!--<div>-->
         <!--<a v-link="requestURL">点击传值</a>-->
         <!--</div>-->
-        <confirm :name=btnName :title=confirmBtnName :code=requestURL :id="2" :positive=positiveAction :negative=negativeAction></confirm>
+        <confirm :name=btnName :title=confirmBtnName :code=requestURL :id="2" :positive=positiveAction
+                 :negative=negativeAction></confirm>
     </div>
 </template>
 
@@ -23,13 +24,13 @@
             return {
                 firstName: 'leon',
                 lastName: 'zhang',
-                btnName:'按钮',
-                confirmBtnName:'确认',
+                btnName: '按钮',
+                confirmBtnName: '确认',
                 positiveAction: function (id) {
                     var parent = this.$parent
                     router.go('/services/' + parent.firstName + parent.lastName)
                     //消除遮罩
-                    $('#'+id).modal('hide')
+                    $('#'+this.id).modal('hide')
                 },
                 negativeAction: function () {
                     console.log('negative')

@@ -9,7 +9,7 @@ var vue = require("vue-loader");
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 var entry = ['./src/js/entry/vue-entry-demo.js'],
-    buildPath = "/dist/static/";
+    buildPath = "/dist/";
 
 
 function clear(_path, _fs) {
@@ -34,10 +34,10 @@ var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
     new HtmlWebpackPlugin({
         template: "src/html/index.html",
-        filename: "../index.html",
+        filename: "index.html",
         hash: true
     }),
-    new ExtractTextPlugin("css/style.css", {
+    new ExtractTextPlugin("style.css", {
         allChunks: true,
         disable: false
     }),
@@ -61,7 +61,7 @@ module.exports = {
     output: {
         path: __dirname + buildPath,
         filename: 'build.js',
-        publicPath: 'static/',
+        publicPath: '',
         chunkFilename: "chunks/[id].chunk.[chunkhash].js"
     },
     module: {

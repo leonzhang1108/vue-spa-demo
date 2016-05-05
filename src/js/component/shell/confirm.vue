@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" @click="negative" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" @click="positive(id)" class="btn btn-primary">Save changes</button>
+                    <button type="button" @click="positive()" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
