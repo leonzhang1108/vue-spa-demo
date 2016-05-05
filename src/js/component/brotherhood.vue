@@ -26,10 +26,12 @@
                 lastName: 'zhang',
                 btnName: '按钮',
                 confirmBtnName: '确认',
-                positiveAction: function (id) {
+                positiveAction: function () {
+                    console.log(this.$parent)
                     var parent = this.$parent
-                    router.go('/services/' + parent.firstName + parent.lastName)
+                    router.go(parent.requestURL)
                     //消除遮罩
+                    console.log(this)
                     $('#'+this.id).modal('hide')
                 },
                 negativeAction: function () {
@@ -39,7 +41,7 @@
         },
         computed: {
             requestURL: function () {
-                return '/services/' + this.firstName + this.lastName
+                return '/services?firstName=' + this.firstName +'&lastName='+ this.lastName
             }
         },
         route: {

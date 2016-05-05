@@ -4,8 +4,12 @@
 <template>
     <div class="services-panel">
         <h3>{{msg}}</h3>
-        <div>{{$route.params.name}}</div>
-        <div>{{nameFromTransition}}</div>
+        <h4>template</h4>
+        <div>{{$route.query.firstName}}</div>
+        <div>{{$route.query.lastName}}</div>
+        <h4>data</h4>
+        <div>{{localFirstName}}</div>
+        <div>{{localLastName}}</div>
     </div>
 </template>
 
@@ -13,14 +17,17 @@
     module.exports = {
         route: {
             activate: function (transition) {
-                this.nameFromTransition = transition.to.params.name
+                console.log(transition.to)
+                this.localFirstName = transition.to.query.firstName
+                this.localLastName = transition.to.query.lastName
                 transition.next()
             }
         },
         data: function () {
             return {
                 msg:"这是服务的页面",
-                nameFromTransition:''
+                localFirstName:'',
+                localLastName:''
             }
         }
     }

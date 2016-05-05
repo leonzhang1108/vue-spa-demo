@@ -23,9 +23,12 @@
 
     var ajaxForm = require('./ajaxForm.vue')
     module.exports = {
-        data: {
-            response: {},
-            progress: 0
+        data: function(){
+            return {
+                response: {},
+                progress: 0
+            }
+
         },
         events: {
             beforeFormSubmit: function (el) {

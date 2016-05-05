@@ -23,32 +23,31 @@
             }
         },
         props: {
-            dataOption:String,
-            viewData:Object,
-            dataColumns:String
+            dataOption: String,
+            viewData: Object,
+            dataColumns: Array
         },
-        data: function () { 
-            var option = this.dataOption || "";            
-            var dataColumns = this.dataColumns || "";            
-            dataColumns = eval("([" + dataColumns + "])");
-            return {                
+        data: function () {
+            var option = this.dataOption || "";
+            this.dataColumns = this.dataColumns || "";
+            return {
                 pageSize: 10,
                 page: 1,
                 maxlink: 5,
                 eventName: "custom",
                 noResultsMsg: option.noResultsMsg,
-                columns: dataColumns
+                columns: this.dataColumns
             }
         },
         events: {
             custom: function (page) {
-                this.page = page;                
+                this.page = page;
             }
         },
-        computed:{
-            units:function (){
+        computed: {
+            units: function () {
                 var units = {}
-                units = this.viewData;                
+                units = this.viewData;
                 return units;
             }
         }

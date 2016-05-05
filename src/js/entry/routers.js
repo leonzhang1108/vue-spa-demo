@@ -25,13 +25,13 @@ module.exports = function(router){
         },
         "/services": {
             name:"services",
-            component: Services,
-            subRoutes: {
-                '/:name': {
-                    name:"services",
-                    component: Services,
-                }
-            }
+            component: Services
+            //subRoutes: {
+            //    '/:name': {
+            //        name:"services",
+            //        component: Services
+            //    }
+            //}
         },
         "/calender": {
             name:"calender",
@@ -55,7 +55,7 @@ module.exports = function(router){
         },
         '*': {
             component: require('../component/shell/not_found.vue')
-        },
+        }
     })
 
     window.routeList=[];

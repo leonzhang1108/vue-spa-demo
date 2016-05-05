@@ -5,6 +5,7 @@
 global._ = require('underscore')
 global.Vue = require('vue')
 global.Vuex = require('vuex')
+global.ES = require('../common/ui.js')
 require("jquery-ui")
 require("../../css/vue-demo.css");
 require("bootstrap/dist/css/bootstrap.css");
