@@ -17,7 +17,8 @@
             showDataList: function (el) {
                 var div = $("#idrop-" + this.elId);
                 $(".showInput").hide();
-                div.show(), div.css("left", el.target.offsetLeft + "px"), div.css("min-width", el.target.offsetWidth + "px");
+                var top = el.target.offsetHeight + el.target.offsetTop;
+                div.show(), div.css("left", el.target.offsetLeft + "px"),div.css("top",  top + "px"), div.css("min-width", el.target.offsetWidth + "px");
                 el.srcElement.select();
                 this.dataList = searchData(this.dataDefault, this.noResultsMsg, this.elId);
                 elid = this.elId;
@@ -26,8 +27,8 @@
             selectData: function (el) {
                 if (el.toElement.dataset.values != 0) {
                     var input = $("#" + this.elId);
-                    var div = $("#idrop-" + this.elId);
-                    input.val(el.target.innerHTML), div.hide();
+                    var div = $("#idrop-" + this.elId);                     
+                    input.val(el.target.innerHTML.trim()), div.hide();
                 }
             },
             //填写过滤下拉框数据
@@ -47,7 +48,7 @@
                     this.$http({
                         url: url,
                         method: 'GET',
-                    }).then(function (response) {
+                    }).then(function (response) {                        
                         this.dataDefault = response.data;
                     }, function (response) {
                         //request error

@@ -3,13 +3,16 @@
     <button @click="changeLocalize('zh')">ZH</button>
     <button @click="changeLocalize('en')">EN</button><br/>
     <div style="margin:20px 0px;"></div>
-    <input_filter input-type="dropdown" input-name="收货单位" input-id="consignee" data-option='{"dataPath":"../src/js/component/data/consignee.json"}'></input_filter>
-    <my_input input-type="text" input-name="生产订单号" input-id="orderNumber" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
-    <my_input input-type="text" input-name="子项号" input-id="subNumber" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
-    <input_filter input-type="dropdown" input-name="船名" input-id="vessel" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></input_filter>
-    <my_input input-type="text" input-name="航次" input-id="voyage" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
-    <date_input input-type="date" input-name="船期" input-id="etd"></date_input>
-    <my_table data-option='{"dataPath":"../src/js/component/data/table-page1.json"}' data-columns="{title: 'message.productItemTrackStatus',display: 'productItemTrackStatus'},{title:'message.consignee',display:'consignee'},{title:'message.dimension',display:'dimension'},{title:'message.itemNumber',display:'itemNumber'},{title:'message.material',display:'material'},{title:'message.productOrderNumber',display:'productOrderNumber'},{title:'message.productName',display:'productName'},{title:'message.pod',display:'pod'}"></my_table>
+    <div class="form">
+        <input_filter input-type="dropdown" input-name="收货单位" input-id="consignee" data-option='{"dataPath":"../src/js/component/data/consignee.json"}'></input_filter>
+        <my_input input-type="text" input-name="生产订单号" input-id="orderNumber" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
+        <my_input input-type="text" input-name="子项号" input-id="subNumber" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
+        <input_filter input-type="dropdown" input-name="船名" input-id="vessel" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></input_filter>
+        <my_input input-type="text" input-name="航次" input-id="voyage" data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
+        <date_input input-type="date" input-name="船期" input-id="etd"></date_input>
+    </div>
+    <button @click="queryData">查询</button>
+    <my_table data-option='{"dataPath":"../src/js/component/data/table-page1.json"}' :data-columns="dataColumns", :view-data.sync="dataList"></my_table>
 
 </template>
 <script>
@@ -34,7 +37,36 @@ module.exports = {
         },
         showJqueryUI: function (e) {
             console.log(jquery_ui)
+        },
+        getData: function (url){
+            
+            var requestData = '{blNo:"",cargoReleaseStatusId:null,consigneeId:"",containerNumber:"",etdFrom:"",etdTo:"",hasBlocked:false,itemNumber:"",loadType:"",orderFieldDto:null,page:1,pageSize:25,podCode:"",productItemTrackStatusId:null,productName:"",productOrderNumber:"",productSubNumber:"",receivingWay:"",secondCustomerId:null,vessel:"",voyage:""}';            
+            requestData = eval("(" + requestData + ")");
+            this.$http({
+                url: url,
+                method: 'GET',
+                data: requestData
+            }).then(function (response) {                    
+                this.dataList = response.data;                  
+            }, function (response) {
+                //request error
+            });
+                        
+        },
+        queryData:function (){
+            var url = "../src/js/component/data/table-page2.json";
+            this.getData(url)
         }
+    },
+    data: function (){
+        return {
+            dataColumns:"{title: 'message.productItemTrackStatus',display: 'productItemTrackStatus'},{title:'message.consignee',display:'consignee'},{title:'message.dimension',display:'dimension'},{title:'message.itemNumber',display:'itemNumber'},{title:'message.material',display:'material'},{title:'message.productOrderNumber',display:'productOrderNumber'},{title:'message.productName',display:'productName'},{title:'message.pod',display:'pod'}",
+            dataList:{}
+        }
+    },
+    ready:function(){
+        var url="../src/js/component/data/table-page1.json";
+        this.getData(url);        
     }
 }
 </script>
