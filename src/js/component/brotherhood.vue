@@ -8,28 +8,27 @@
             {{lastName}}
             <input v-model="lastName"/>
         </div>
-        <div>
-            <a v-link="requestURL">点击传值</a>
-        </div>
-        <!--<confirm :name=firstName :code=requestURL :id="2" :positive=positiveAction :negative=negativeAction></confirm>-->
+        <!--<div>-->
+        <!--<a v-link="requestURL">点击传值</a>-->
+        <!--</div>-->
+        <confirm :name=firstName :code=requestURL :id="2" :positive=positiveAction :negative=negativeAction></confirm>
     </div>
 </template>
 
 <script>
 
-
-//    var confirm = require("bundle?lazy!./shell/confirm.vue");
-
-    module.exports = {
+    var confirm = require("bundle?lazy!./shell/confirm.vue");
+    var brotherhood = module.exports = {
         data: function () {
             return {
                 firstName: 'leon',
                 lastName: 'zhang',
-                positiveAction: function(){
-//                    router.go('/services')
-                    console.log(router.go('/servers'))
+                positiveAction: function (id) {
+                    router.go('/services/' + brotherhood.data().firstName + brotherhood.data().lastName)
+                    //消除遮罩
+                    $('#'+id).modal('hide')
                 },
-                negativeAction: function(){
+                negativeAction: function () {
                     console.log('negative')
                 }
             }
@@ -52,7 +51,8 @@
             },
 
             canDeactivate: function (transition) {
-                return confirm('确定离开此页面？')
+//                return confirm('确定离开此页面？')
+                transition.next()
             },
 
             // activate hook is called when the route is matched

@@ -24,6 +24,8 @@
             vueBreadcrumb
         }
     }
+
+    //全局滚动事件 触发自由表头
     $(document).scroll(function () {
         if($('.sticky-thead:visible').length==0){
             headSticker()
