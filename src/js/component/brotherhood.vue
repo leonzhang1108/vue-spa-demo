@@ -18,13 +18,14 @@
 <script>
 
     var confirm = require("bundle?lazy!./shell/confirm.vue");
-    var brotherhood = module.exports = {
+    module.exports = {
         data: function () {
             return {
                 firstName: 'leon',
                 lastName: 'zhang',
                 positiveAction: function (id) {
-                    router.go('/services/' + brotherhood.data().firstName + brotherhood.data().lastName)
+                    var parent = this.$parent
+                    router.go('/services/' + parent.firstName + parent.lastName)
                     //消除遮罩
                     $('#'+id).modal('hide')
                 },
@@ -48,11 +49,6 @@
                     console.log('可以跳转')
                     transition.next()
                 }
-            },
-
-            canDeactivate: function (transition) {
-//                return confirm('确定离开此页面？')
-                transition.next()
             },
 
             // activate hook is called when the route is matched
