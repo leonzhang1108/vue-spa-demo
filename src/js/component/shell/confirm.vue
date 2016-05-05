@@ -9,7 +9,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">{{name}}</h4>
+                    <h4 class="modal-title" id="myModalLabel">{{title}}</h4>
                 </div>
                 <div class="modal-body">
                     {{code}}
@@ -25,7 +25,7 @@
 
 <script>
     module.exports = {
-        props: ['name', 'code', 'id', 'positive', 'negative'],
+        props: ['name', 'code', 'id', 'positive', 'negative', 'title'],
         data: function () {
             return {
                 msg: "这是主页的页面"
