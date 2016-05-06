@@ -4,7 +4,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-exports.breadcrumbChange = function breadcrumbChange(ref, e) {
+exports.clickToCurrent = function clickToCurrent(ref, e) {
     var dispatch = ref.dispatch;
-    dispatch('BREADCRUMB_CHANGE', e.target.hash);
+    dispatch('CLICK_TO_CURRENT', e.target);
 };

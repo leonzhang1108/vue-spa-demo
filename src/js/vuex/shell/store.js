@@ -12,7 +12,7 @@ var state = {
         component: 'component1',
         current: true
     },{
-        id: 1,
+        id: 2,
         name: 'cissy',
         component: 'component2',
         current: false
@@ -45,16 +45,19 @@ var state = {
 };
 
 var mutations = {
-    BREADCRUMB_CHANGE: function BREADCRUMB_CHANGE(state, current) {
-        var currentMenus = state.menus
-        $.each(state.menus, function (index, menu) {
-            if (current.indexOf(menu.path) > 0) {
-                currentMenus[index].current = true
+    CLICK_TO_CURRENT: function CLICK_TO_CURRENT(state, current){
+        var currentId = current.id
+        console.log(current.id)
+        //var currentMenus = state.tabMenus
+        $.each(state.tabMenus, function (index, menu) {
+            if (menu.id == currentId) {
+                state.tabMenus[index].current = true
             } else {
-                currentMenus[index].current = false
-        }
+                state.tabMenus[index].current = false
+            }
         })
-        state.menus = currentMenus
+        //state.tabMenus = currentMenus
+        console.log(state.tabMenus)
     }
 };
 
