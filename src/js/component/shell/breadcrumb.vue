@@ -5,7 +5,6 @@
     </div>
 </template>
 <script>
-    require('../../../css/layouts/breadcrumb.css')
     var storeAction =  require('../../vuex/shell/actions')
     var breadcrumbChange = storeAction.breadcrumbChange
     var headSticker = require('../../common/jquery-head-sticker.js')
@@ -31,3 +30,18 @@
         }
     }
 </script>
+<style>
+    .vue-breadcrumb{
+        float: left;
+        width: 100%;
+        height: 30px;
+        padding-left: 10px;
+        line-height: 30px;
+        overflow: hidden;
+        font-size: 12px;
+        position: fixed;
+        background: #dedede;
+        z-index: 100;
+        top: 69px;
+    }
+</style>

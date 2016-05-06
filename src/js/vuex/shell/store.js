@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var state = {
     currentMenu: 'index',
+    tabMenus: [],
     menus: [{
         path: '/services',
         name: '货物状态'
