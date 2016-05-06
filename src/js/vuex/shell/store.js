@@ -6,17 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var state = {
     currentMenu: 'index',
-    tabMenus: [{
-        id: 1,
-        name: 'leon',
-        component: 'component1',
-        current: true
-    },{
-        id: 2,
-        name: 'cissy',
-        component: 'component2',
-        current: false
-    }],
+    tabId: 1,
+    tabMenus: [],
     menus: [{
         path: '/services',
         name: '货物状态'
@@ -48,7 +39,6 @@ var mutations = {
     CLICK_TO_CURRENT: function CLICK_TO_CURRENT(state, current){
         var currentId = current.id
         console.log(current.id)
-        //var currentMenus = state.tabMenus
         $.each(state.tabMenus, function (index, menu) {
             if (menu.id == currentId) {
                 state.tabMenus[index].current = true
@@ -56,8 +46,33 @@ var mutations = {
                 state.tabMenus[index].current = false
             }
         })
-        //state.tabMenus = currentMenus
         console.log(state.tabMenus)
+    },
+    ADD_TAB_MENU: function ADD_TAB_MENU(state, current){
+        $.each(state.tabMenus, function(index, menu){
+            state.tabMenus[index].current = false
+        })
+        state.tabMenus.push({
+            id: state.tabId++,
+            name: 'lalala',
+            component: 'component3',
+            current: true
+        })
+    },
+    DELETE_TAB: function DELETE_TAB(state, current){
+
+        var id = $(current).parent().attr('id')
+        console.log('this is id: '+id)
+
+        $.each(state.tabMenus, function(index, menu){
+            console.log(menu.id)
+            if(id == menu.id){
+                state.tabMenus.splice(index, 1)
+                return false
+            }
+        })
+
+        console.log(id)
     }
 };
 

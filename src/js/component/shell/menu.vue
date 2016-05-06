@@ -4,7 +4,7 @@
             <a class="pure-menu-heading" href="#" >VUE - DEMO</a>
             <ul class="pure-menu-list">
                 <li class="pure-menu-item" v-for="menu in menus">
-                    <a class="pure-menu-link" v-link="{ path: menu.path }">
+                    <a class="pure-menu-link" v-link="{ path: menu.path }" @click="addTabMenu">
                         <div class="current_menu_color_bar"></div>
                         <div>{{menu.name}}</div>
                         <span class="trangle"></span>
@@ -17,7 +17,7 @@
 
 <script>
     var storeAction =  require('../../vuex/shell/actions')
-    var breadcrumbChange = storeAction.breadcrumbChange
+    var addTabMenu = storeAction.addTabMenu
     module.exports = {
         vuex: {
             getters: {
@@ -26,7 +26,7 @@
                 }
             },
             actions: {
-                breadcrumbChange
+                addTabMenu
             }
         },
         route: {
