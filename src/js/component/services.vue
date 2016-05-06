@@ -17,7 +17,6 @@
     module.exports = {
         route: {
             activate: function (transition) {
-                console.log(transition.to)
                 this.localFirstName = transition.to.query.firstName
                 this.localLastName = transition.to.query.lastName
                 transition.next()
