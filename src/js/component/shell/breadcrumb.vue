@@ -1,18 +1,30 @@
 <template>
-    <div class="vue-breadcrumb">
-        <i class="fa fa-map-marker"></i>
-        <span>{{$route.name}}</span>
+    <!--<div class="vue-breadcrumb">-->
+        <!--<i class="fa fa-map-marker"></i>-->
+        <!--<span>{{$route.name}}</span>-->
+    <!--</div>-->
+    <div class="tab-row" >
+        <tab v-for="menu in tabMenus"
+             :name=menu.name
+             :id=menu.id
+             :component=menu.component
+             :current=menu.current
+        ></tab>
     </div>
 </template>
 <script>
     var storeAction =  require('../../vuex/shell/actions')
     var breadcrumbChange = storeAction.breadcrumbChange
     var headSticker = require('../../common/jquery-head-sticker.js')
+    var tab = require('./tab.vue')
     module.exports = {
         vuex: {
             getters: {
                 currentMenu: function (state) {
                     return state.currentMenu
+                },
+                tabMenus: function (state) {
+                    return state.tabMenus
                 }
             }
         },
@@ -27,11 +39,15 @@
                 })
                 headSticker()
             }
+        },
+        components: {
+            tab
         }
     }
 </script>
 <style>
-    .vue-breadcrumb{
+    .vue-breadcrumb,
+    .tab-row {
         float: left;
         width: 100%;
         height: 30px;

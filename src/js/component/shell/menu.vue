@@ -270,6 +270,9 @@
         .vue-breadcrumb{
             left: 150px;
         }
+        .tab-row{
+            left: 150px;
+        }
         #router-view {
             margin-left: 150px;
         }
