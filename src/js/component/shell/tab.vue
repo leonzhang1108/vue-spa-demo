@@ -1,5 +1,5 @@
 <template>
-    <div class="single-tab" v-bind:class={'current-tab':current} @click="clickToCurrent" id={{id}} >
+    <div class="single-tab" v-bind:class={'current-tab':current} @click="clickToCurrent" id={{id}} data-router={{component}} >
         {{id}} {{name}}  {{component}}<i class="fa fa-times" aria-hidden="true" @click.stop.prevent="deleteTab"></i>
     </div>
 </template>

@@ -37,31 +37,28 @@ var state = {
 
 var mutations = {
     CLICK_TO_CURRENT: function CLICK_TO_CURRENT(state, current){
-        var currentId = current.id
-        console.log(current.id)
         $.each(state.tabMenus, function (index, menu) {
-            if (menu.id == currentId) {
+            if (menu.id == current.id) {
                 state.tabMenus[index].current = true
             } else {
                 state.tabMenus[index].current = false
             }
         })
-        console.log(state.tabMenus)
+        console.log($(current).data('router'))
+        router.go($(current).data('router'))
     },
     ADD_TAB_MENU: function ADD_TAB_MENU(state, current){
         $.each(state.tabMenus, function(index, menu){
             state.tabMenus[index].current = false
         })
-        console.log(current)
         state.tabMenus.push({
             id: state.tabId++,
             name: current.innerHTML,
-            component: 'component',
+            component: $(current).parent().attr('href').replace('#!/',''),
             current: true
         })
     },
     DELETE_TAB: function DELETE_TAB(state, current){
-
         var id = $(current).parent().attr('id')
         $.each(state.tabMenus, function(index, menu){
             if(id == menu.id){
@@ -69,7 +66,6 @@ var mutations = {
                 return false
             }
         })
-
         console.log(id)
     }
 };
