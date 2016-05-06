@@ -6,7 +6,7 @@
                 <li class="pure-menu-item"  v-for="menu in menus">
                     <a class="pure-menu-link" v-link="{ path: menu.path }">
                         <div class="current_menu_color_bar"></div>
-                        <div  @click.stop.prevent="addTabMenu">{{menu.name}}</div>
+                        <div @click="addTabMenu" class="menu_name">{{menu.name}}</div>
                         <span class="trangle"></span>
                     </a>
                 </li>
@@ -35,7 +35,6 @@
             }
         }
     }
-
 </script>
 <style>
     body {
@@ -329,6 +328,11 @@
         position: absolute;
         background: #f99904;
         z-index: 1;
+    }
+    .menu_name {
+        height: 38px;
+        line-height: 38px;
+        margin: -9px 0;
     }
 
 </style>
