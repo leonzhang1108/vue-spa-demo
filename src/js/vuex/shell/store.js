@@ -52,20 +52,18 @@ var mutations = {
         $.each(state.tabMenus, function(index, menu){
             state.tabMenus[index].current = false
         })
+        console.log(current)
         state.tabMenus.push({
             id: state.tabId++,
-            name: 'lalala',
-            component: 'component3',
+            name: current.innerHTML,
+            component: 'component',
             current: true
         })
     },
     DELETE_TAB: function DELETE_TAB(state, current){
 
         var id = $(current).parent().attr('id')
-        console.log('this is id: '+id)
-
         $.each(state.tabMenus, function(index, menu){
-            console.log(menu.id)
             if(id == menu.id){
                 state.tabMenus.splice(index, 1)
                 return false
