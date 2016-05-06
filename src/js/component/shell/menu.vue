@@ -3,10 +3,10 @@
         <div class="pure-menu">
             <a class="pure-menu-heading" href="#" >VUE - DEMO</a>
             <ul class="pure-menu-list">
-                <li class="pure-menu-item" v-for="menu in menus">
-                    <a class="pure-menu-link" v-link="{ path: menu.path }" @click="addTabMenu">
+                <li class="pure-menu-item"  v-for="menu in menus">
+                    <a class="pure-menu-link" v-link="{ path: menu.path }">
                         <div class="current_menu_color_bar"></div>
-                        <div>{{menu.name}}</div>
+                        <div  @click.stop.prevent="addTabMenu">{{menu.name}}</div>
                         <span class="trangle"></span>
                     </a>
                 </li>
