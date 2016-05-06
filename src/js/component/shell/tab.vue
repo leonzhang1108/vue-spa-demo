@@ -1,6 +1,6 @@
 <template>
     <div class="single-tab" v-bind:class={'current-tab':current} @click="clickToCurrent" id={{id}} >
-        {{id}} {{name}}  {{component}}  {{current}}<i class="fa fa-times" aria-hidden="true" @click.stop.prevent="deleteTab"></i>
+        {{id}} {{name}}  {{component}}<i class="fa fa-times" aria-hidden="true" @click.stop.prevent="deleteTab"></i>
     </div>
 </template>
 <script>
@@ -22,7 +22,8 @@
         margin-right: 10px;
         cursor: pointer;
     }
-    .current-tab{
+    .current-tab,
+    .single-tab:hover{
         background: #cdcdcd;
     }
 </style>
