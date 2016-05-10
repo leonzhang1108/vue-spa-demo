@@ -1,16 +1,16 @@
 <template>
-    <!--<div class="vue-breadcrumb">-->
-    <!--<i class="fa fa-map-marker"></i>-->
-    <!--<span>{{$route.name}}</span>-->
-    <!--</div>-->
-    <div class="tab-row">
-        <tab v-for="menu in tabMenus"
-             :name.sync=menu.name
-             :id.sync=menu.id
-             :component.sync=menu.component
-             :current.sync=menu.current
-        ></tab>
+    <div class="vue-breadcrumb">
+    <i class="fa fa-map-marker"></i>
+    <span>{{$route.name}}</span>
     </div>
+    <!--<div class="vue-breadcrumb">-->
+        <!--<tab v-for="menu in tabMenus"-->
+             <!--:name.sync=menu.name-->
+             <!--:id.sync=menu.id-->
+             <!--:component.sync=menu.component-->
+             <!--:current.sync=menu.current-->
+        <!--&gt;</tab>-->
+    <!--</div>-->
 </template>
 <script>
     var storeAction = require('../../vuex/shell/actions')
@@ -34,7 +34,7 @@
         methods: {
             onResize: function (event) {
                 $('#router-view').css({
-                    height: event.height - $('#shell-header').height() - $('.vue-breadcrumb').height() - 1
+                    height: event.height - $('#shell-header').height() - $('.tab-row').height() - 1
                 })
                 headSticker()
             }

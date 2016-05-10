@@ -73,7 +73,7 @@ module.exports = {
             {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
             {test: /\.json$/, loader: 'json' },
             {test: /\.(html|tpl)$/, loader: 'html-loader' },
-            {test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015'}
+            {test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015!jshint-loader'}
             //{ test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react'
         ]
     },

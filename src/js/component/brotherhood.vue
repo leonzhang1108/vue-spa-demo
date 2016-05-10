@@ -8,9 +8,6 @@
             {{lastName}}
             <input v-model="lastName"/>
         </div>
-        <!--<div>-->
-        <!--<a v-link="requestURL">点击传值</a>-->
-        <!--</div>-->
         <confirm :name=btnName :title=confirmBtnName :code=requestURL :id="2" :positive=positiveAction
                  :negative=negativeAction></confirm>
     </div>
@@ -27,12 +24,10 @@
                 btnName: '按钮',
                 confirmBtnName: '确认',
                 positiveAction: function () {
-                    console.log(this.$parent)
                     var parent = this.$parent
                     router.go(parent.requestURL)
-                    //消除遮罩
                     console.log(this)
-                    $('#'+this.id).modal('hide')
+                    $('#' + this.id).modal('hide')
                 },
                 negativeAction: function () {
                     console.log('negative')
@@ -41,32 +36,23 @@
         },
         computed: {
             requestURL: function () {
-                return '/services?firstName=' + this.firstName +'&lastName='+ this.lastName
+                return '/services?firstName=' + this.firstName + '&lastName=' + this.lastName
             }
         },
         route: {
-            canActivate: function (transition) {
-                console.log('能否跳转?')
-                if (transition.from.path === '/about') {
-                    alert('不能从 /about 跳转到 /inbox')
-                    transition.abort()
-                } else {
-                    console.log('可以跳转')
-                    transition.next()
-                }
+            data(transition){
+                transition.next(JSON.parse(localStorage.getItem(transition.to.query.currentPage))||null)//把数据赋值给data
             },
-
-            // activate hook is called when the route is matched
-            // and the component has been created.
-            // this hook controls the timing of the component
-            // switching - the switching won't start until this
-            // hook is resolved.
-//            activate : function() {
-//                console.log('activating inbox...')
-//                return new Promise((resolve) => {
-//                            console.log('inbox activated.')
-//                resolve()
-//            })
+            activate: function (transition) {
+                //可检验是否登录
+                console.log(transition)
+                transition.next()
+            },
+            canDeactivate: function (transition) {
+                console.log('canDeactivate')
+                localStorage.setItem(transition.from.query.currentPage, JSON.stringify(this.$data))
+                transition.next()
+            }
         },
         components: {
             confirm

@@ -104,14 +104,12 @@
         width: calc(50% - 15px);
         text-align: right;
     }
-
     .pagenav div.pageDec {
         float: left;
         width: calc(50% - 15px);
         margin: 20px 0px;
         padding-left: 15px;
     }
-
     span.pagination {
         display: none;
     }

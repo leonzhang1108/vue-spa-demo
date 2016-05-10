@@ -88,7 +88,7 @@ function headSticker(Scope, sortObj) {
                 var scrollHeight = $(window).scrollTop()
                 var theadHeight = $('thead:visible').eq(0).offset().top
                 var listHeight = $('.sticky-enabled:visible').outerHeight()
-                var topNavHeight = $('.navbar-fixed-top').outerHeight()
+                var topNavHeight = $('.tab-row').outerHeight()
                 if (scrollHeight + topNavHeight > theadHeight) {
                     affix.css({
                         top: scrollHeight - listHeight - theadHeight + topNavHeight

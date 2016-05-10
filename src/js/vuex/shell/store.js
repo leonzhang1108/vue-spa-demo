@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var state = {
     currentMenu: 'index',
-    tabId: 1,
+    tabId: 0,
     tabMenus: [],
     menus: [{
         path: '/services',
@@ -37,15 +37,17 @@ var state = {
 
 var mutations = {
     CLICK_TO_CURRENT: function CLICK_TO_CURRENT(state, current){
+        var currentPage = 0
+        console.log(current)
         $.each(state.tabMenus, function (index, menu) {
             if (menu.id == current.id) {
+                currentPage = index
                 state.tabMenus[index].current = true
             } else {
                 state.tabMenus[index].current = false
             }
         })
-        console.log($(current).data('router'))
-        router.go($(current).data('router'))
+        router.go($(current).data('router')+'?currentPage='+currentPage)
     },
     ADD_TAB_MENU: function ADD_TAB_MENU(state, current){
         $.each(state.tabMenus, function(index, menu){
@@ -66,7 +68,7 @@ var mutations = {
                 return false
             }
         })
-        console.log(id)
+        console.log(state.tabMenus)
     }
 };
 
