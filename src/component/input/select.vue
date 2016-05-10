@@ -4,27 +4,18 @@
             "id": String,
             "name": String,
             "dataList": Array,
-            "nonempty": true
-        },
-        data: function () {            
-            return {
-                input_id:this.id      
-            }
-        },
-        methods:{
-            PopBoxClose:function(){
-                this.isShow = false;
-            }
+            "nonempty": true,
+            "label": String
         },
         ready:function(){
         	interfacePort.select({
-                label: 'test：',
-                el: this.input_id,
+                label: this.label+"：",
+                el: this.id,
                 nonempty: true
             }).bind_list(this.dataList);
         }
     }	
 </script>
 <template>
-	<select id="{{input_id}}" name="{{name}}"></select>
+	<select id="{{id}}" name="{{name}}"></select>
 </template>

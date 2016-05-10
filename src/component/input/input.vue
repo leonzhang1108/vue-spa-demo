@@ -3,27 +3,18 @@
         props: {
             "id":String,
             "name":String,
-            "dataList":Array
-        },
-        data: function () {
-            return {
-                input_id:this.id
-            }
-        },
-        methods:{
-            PopBoxClose:function(){
-                this.isShow = false;
-            }
+            "label": String
         },
         ready:function(){
-            interfacePort.select({
-                label: 'test：',
-                el: this.input_id,
+            interfacePort.input({
+                label: this.label+"：",
+                el: this.id,
+                placeholder: '输入您获取到的验证码',
                 nonempty: true
-            }).bind_list(this.dataList);
+            })
         }
     }
-</script>
+</script>int
 <template>
-    <select id="{{input_id}}" name="{{name}}"></select>
+    <input type="text" id="{{id}}" name="{{name}}"/>
 </template>
