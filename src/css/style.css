@@ -59,3 +59,32 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     top: 0;
     z-index: 2;
 }
+
+.input-wrap .nonempty {
+    color: #ff3600;
+    position: relative;
+    margin: 3px 5px 10px -12px;
+}
+
+.input-wrap label, .geo-selector label {
+    text-align: right;
+    display: block;
+    float: left;
+    margin-right: 5px;
+    padding-top: 2px;
+    line-height: 25px;
+    height: 28px;
+    font-size: 13px;
+    width: 10%;
+}
+.input-wrap label, .geo-selector label {
+    text-align: right;
+    display: block;
+    float: left;
+    margin-right: 5px;
+    padding-top: 2px;
+    line-height: 25px;
+    height: 28px;
+    font-size: 13px;
+    width: 10%;
+}

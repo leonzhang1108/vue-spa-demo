@@ -1,14 +1,13 @@
 <script type="text/javascript">
-	module.exports = {
+    module.exports = {
         props: {
-            "id": String,
-            "name": String,
-            "dataList": Array,
-            "nonempty": true
+            "id":String,
+            "name":String,
+            "dataList":Array
         },
-        data: function () {            
+        data: function () {
             return {
-                input_id:this.id      
+                input_id:this.id
             }
         },
         methods:{
@@ -17,14 +16,14 @@
             }
         },
         ready:function(){
-        	interfacePort.select({
+            interfacePort.select({
                 label: 'test：',
                 el: this.input_id,
                 nonempty: true
             }).bind_list(this.dataList);
         }
-    }	
+    }
 </script>
 <template>
-	<select id="{{input_id}}" name="{{name}}"></select>
+    <select id="{{input_id}}" name="{{name}}"></select>
 </template>

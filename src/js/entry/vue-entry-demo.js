@@ -10,6 +10,8 @@ global.localStorage = window.localStorage
 global.interfacePort = require('../interface/interface.js');
 require("jquery-ui")
 require("../../css/vue-demo.css");
+require("../../css/style.css");
+require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
 require("font-awesome-webpack");
