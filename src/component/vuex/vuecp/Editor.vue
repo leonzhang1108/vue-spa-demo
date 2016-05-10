@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { editNote } from '../../../vuex/vuexapp/actions'
+import { editNote } from '../../../js/vuex/vuexapp/actions'
 
 export default {
   vuex: {

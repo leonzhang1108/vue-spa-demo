@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { updateActiveNote } from '../../../vuex/vuexapp/actions'
+import { updateActiveNote } from '../../../js/vuex/vuexapp/actions'
 
 export default {
   data () {

@@ -13,8 +13,8 @@
     <!--</div>-->
 </template>
 <script>
-    var storeAction = require('../../vuex/shell/actions')
-    var headSticker = require('../../common/jquery-head-sticker.js')
+    var storeAction = require('../../js/vuex/shell/actions')
+    var headSticker = require('../../js/common/jquery-head-sticker.js')
     var tab = require('./tab.vue')
     module.exports = {
         vuex: {

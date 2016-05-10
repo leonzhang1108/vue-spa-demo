@@ -9,7 +9,7 @@
 </template>
 
 <script>
-    var actions = require('../../../vuex/vuexapp/actions');
+    var actions = require('../../../js/vuex/vuexapp/actions');
 
     module.exports = {
         vuex: {

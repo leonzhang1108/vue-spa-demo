@@ -7,8 +7,8 @@
 </template>
 
 <script>
-    require('../../../css/layouts/header.css')
-    var logo = require('../../../pic/SAAS_logo.png')
+    require('../../css/layouts/header.css')
+    var logo = require('../../pic/SAAS_logo.png')
     module.exports = {
         data: function () {
             return {

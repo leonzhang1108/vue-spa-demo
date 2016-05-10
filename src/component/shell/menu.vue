@@ -16,7 +16,7 @@
 </template>
 
 <script>
-    var storeAction =  require('../../vuex/shell/actions')
+    var storeAction =  require('../../js/vuex/shell/actions')
     var addTabMenu = storeAction.addTabMenu
     module.exports = {
         vuex: {

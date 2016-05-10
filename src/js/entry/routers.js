@@ -2,14 +2,14 @@
  * Created by leon on 2016/5/2.
  */
 module.exports = function (router) {
-    var Index = require('bundle?lazy!../component/shell/index.vue')
-    var About = require('bundle?lazy!../component/about.vue');
-    var Services = require('bundle?lazy!../component/services.vue');
-    var Watch = require('bundle?lazy!../component/watch.vue');
-    var Vuex = require('bundle?lazy!../component/vuex/vuexapp.vue');
-    var Table = require('bundle?lazy!../component/table/tableapp.vue');
-    var Form = require('bundle?lazy!../component/form/form.vue');
-    var Brotherhood = require('bundle?lazy!../component/brotherhood.vue');
+    var Index = require('bundle?lazy!../../component/shell/index.vue')
+    var About = require('bundle?lazy!../../component/about.vue');
+    var Services = require('bundle?lazy!../../component/services.vue');
+    var Watch = require('bundle?lazy!../../component/watch.vue');
+    var Vuex = require('bundle?lazy!../../component/vuex/vuexapp.vue');
+    var Table = require('bundle?lazy!../../component/table/tableapp.vue');
+    var Form = require('bundle?lazy!../../component/form/form.vue');
+    var Brotherhood = require('bundle?lazy!../../component/brotherhood.vue');
     router.map({
         '/': {
             name: "index",
@@ -45,10 +45,10 @@ module.exports = function (router) {
         },
         '/forbidden': {
             name: 'forbidden',
-            component: require('../component/shell/forbidden.vue')
+            component: require('../../component/shell/forbidden.vue')
         },
         '*': {
-            component: require('../component/shell/not_found.vue')
+            component: require('../../component/shell/not_found.vue')
         }
     })
 

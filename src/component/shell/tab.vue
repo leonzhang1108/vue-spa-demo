@@ -5,7 +5,7 @@
 </template>
 <script>
 
-    var actions = require('../../vuex/shell/actions');
+    var actions = require('../../js/vuex/shell/actions');
     module.exports = {
         vuex: {
             actions: {
