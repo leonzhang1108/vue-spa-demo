@@ -8,11 +8,12 @@
             "label": String
         },
         ready:function(){
+            console.log(this.dataList)
         	interfacePort.select({
                 label: this.label+"：",
                 el: this.id,
                 nonempty: true
-            }).bind_list(this.dataList);
+            }).bind_list(this.dataList||[]);
         }
     }	
 </script>
