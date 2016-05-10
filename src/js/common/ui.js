@@ -631,7 +631,7 @@ ES.ui.input = function (config) {
             }
         }
         this.clear_invalid = function () {
-            var tip_msg = this.el.closESt('div').find('.msg-tip')
+            var tip_msg = this.el.closest('div').find('.msg-tip')
             if (tip_msg.length > 0) {
                 tip_msg.remove()
             }
@@ -670,13 +670,13 @@ ES.ui.input = function (config) {
                 }
                 ES.get('.main-popup-error').children().hide()
                 ES.get('.main-popup-error').show().find('.popup-' + error_style).html('<i class="fa ' + i_cls + '"></i> ' + msg).show()
-                ES.get('#' + this.id).adESlass(error_style + '_frame')
+                ES.get('#' + this.id).addClass(error_style + '_frame')
             } else {
                 function findMsg(el) {
                     if (el.parent().children('.msg').length == 0) {
                         findMsg(el.parent())
                     } else {
-                        el.parent().children('.msg').adESlass('error').html('<i class="fa ' + i_cls + '"></i> ' + msg).show()
+                        el.parent().children('.msg').addClass('error').html('<i class="fa ' + i_cls + '"></i> ' + msg).show()
                     }
                 }
 
@@ -687,9 +687,9 @@ ES.ui.input = function (config) {
         }
         this.disable = function () {
             if (this.el.attr('type') == 'checkbox') {
-                this.el.adESlass('disabled').prop('disabled', true)
+                this.el.addClass('disabled').prop('disabled', true)
             } else {
-                this.el.adESlass('disabled').attr('readonly', true)
+                this.el.addClass('disabled').attr('readonly', true)
             }
 
         }
@@ -778,8 +778,8 @@ ES.ui.input_date_input = function (config) {
     }
     var minDate = config.minDate
     var maxDate = config.maxDate
-    from_ret.el.datepicker(config).adESlass('input-date-from')
-    toInput.datepicker(config).adESlass('input-date-to')
+    from_ret.el.datepicker(config).addClass('input-date-from')
+    toInput.datepicker(config).addClass('input-date-to')
 
     var change_input_date = function () {
         var v = $(this).val()
@@ -821,8 +821,8 @@ ES.ui.input_date_input = function (config) {
         return from_ret.el.val('')
     }
     from_ret.disable = function () {
-        from_ret.el.adESlass('disabled').attr('readonly', true)
-        toInput.adESlass('disabled').attr('readonly', true)
+        from_ret.el.addClass('disabled').attr('readonly', true)
+        toInput.addClass('disabled').attr('readonly', true)
     }
     from_ret.enable = function () {
         from_ret.el.removeClass('disabled').attr('readonly', false)
@@ -922,8 +922,8 @@ ES.ui.input_year_month = function (config) {
         return from_ret.el.val('')
     }
     from_ret.disable = function () {
-        from_ret.el.adESlass('disabled').attr('readonly', true)
-        toInput.adESlass('disabled').attr('readonly', true)
+        from_ret.el.addClass('disabled').attr('readonly', true)
+        toInput.addClass('disabled').attr('readonly', true)
     }
     from_ret.enable = function () {
         from_ret.el.removeClass('disabled').attr('readonly', false)
@@ -985,7 +985,7 @@ ES.ui.input_date_time = function (config) {
     if (ES.lang === 'zh-cn') {
         config = ES.util.merge(config, configCn)
     }
-    ret.el.datepicker(config).adESlass('input-date-time')
+    ret.el.datepicker(config).addClass('input-date-time')
     ret.el.on('change', function () {
         var v = $(this).val()
         var reg = /^((?:19|20)\d\d)-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])$/
@@ -1026,8 +1026,8 @@ ES.ui.input_date_time = function (config) {
         this.el_time.val(arr[1])
     }
     ret.disable = function () {
-        this.el.adESlass('disabled').attr('readonly', true)
-        this.el_time.adESlass('disabled').attr('readonly', true)
+        this.el.addClass('disabled').attr('readonly', true)
+        this.el_time.addClass('disabled').attr('readonly', true)
     }
     ret.enable = function () {
         this.el.removeClass('disabled').attr('readonly', false)
@@ -1290,7 +1290,7 @@ ES.ui.input_port = function (config) {
             }
             drop.empty().html(out.join('')).show()
             if (!selected) {
-                drop.children('div.input-port-item').eq(0).adESlass('input-port-item-selected')
+                drop.children('div.input-port-item').eq(0).addClass('input-port-item-selected')
                 if (inputValue) {
                     input.data('value', drop.children('div.input-port-item').eq(0).data().value).data('type', drop.children('div.input-port-item').eq(0).data().type)
                 }
@@ -1365,7 +1365,7 @@ ES.ui.input_port = function (config) {
             for (var i = 0; i < total; i++) {
                 if (i > 0 && children.eq(i).hasClass('input-port-item-selected')) {
                     children.eq(i).removeClass('input-port-item-selected')
-                    children.eq(i - 1).adESlass('input-port-item-selected')
+                    children.eq(i - 1).addClass('input-port-item-selected')
                     break;
                 }
             }
@@ -1376,7 +1376,7 @@ ES.ui.input_port = function (config) {
             for (var i = 0; i < total; i++) {
                 if (i < total - 1 && children.eq(i).hasClass('input-port-item-selected')) {
                     children.eq(i).removeClass('input-port-item-selected')
-                    children.eq(i + 1).adESlass('input-port-item-selected')
+                    children.eq(i + 1).addClass('input-port-item-selected')
                     break;
                 }
             }
@@ -1629,7 +1629,7 @@ ES.ui.input_filter = function (config) {
             for (var i = 0; i < total; i++) {
                 if (i > 0 && children.eq(i).hasClass('input-item-selected')) {
                     children.eq(i).removeClass('input-item-selected')
-                    children.eq(i - 1).adESlass('input-item-selected')
+                    children.eq(i - 1).addClass('input-item-selected')
                     break;
                 }
             }
@@ -1641,11 +1641,11 @@ ES.ui.input_filter = function (config) {
             for (var i = 0; i < total; i++) {
                 if (i < total - 1 && children.eq(i).hasClass('input-item-selected')) {
                     children.eq(i).removeClass('input-item-selected')
-                    children.eq(i + 1).adESlass('input-item-selected')
+                    children.eq(i + 1).addClass('input-item-selected')
                     break;
                 } else {
                     if (drop.find('.input-item-selected').length > 0) continue
-                    children.eq(0).adESlass('input-item-selected')
+                    children.eq(0).addClass('input-item-selected')
                     break;
                 }
             }
@@ -1814,7 +1814,7 @@ ES.ui.geo_selector_v2 = function (config) {
     ret.disable = function () {
         var child_list = this.el.parent().children('select')
         child_list.each(function (_, v) {
-            $(v).adESlass('disabled').attr('disabled', true)
+            $(v).addClass('disabled').attr('disabled', true)
         })
     }
     ret.enable = function () {
@@ -1893,7 +1893,7 @@ ES.ui.geo_selector = function (config) {
             ES.get('#' + tab_panel.id + ' .panel').eq(level).children('ul').children('li').on('click', function () {
                 var li = $(this)
                 li.parent().children('li').removeClass('selected')
-                li.adESlass('selected')
+                li.addClass('selected')
                 var value = li.data('value')
                 var lev = li.closESt('.panel').index()
                 var drop = li.closESt('.input-geo-drop')
@@ -1954,7 +1954,7 @@ ES.ui.input_form = function (config) {
         }
         var id = '#' + conf.el
         var el = $(id)
-        el.adESlass('form-wrap')
+        el.addClass('form-wrap')
         var items_dom = el.children()
         var items = []
         var item_index = 0
@@ -2112,9 +2112,9 @@ ES.ui.button = function (config) {
         conf.text = conf.text || ''
         var id = '#' + conf.el
         var el = $(id)
-        el.adESlass('btn').attr('href', 'javascript:void(0)').html(conf.text)
+        el.addClass('btn').attr('href', 'javascript:void(0)').html(conf.text)
         if (conf.cls) {
-            el.adESlass(conf.cls)
+            el.addClass(conf.cls)
         }
         if (conf.onclick) {
             el.on('click', conf.onclick)
@@ -2147,7 +2147,7 @@ ES.ui.input_qty = function (config) {
         var el = $(id)
 
         var cls = conf.cls ? conf.cls : ''
-        el.adESlass('input-qty').wrap("<div class='wrap input-wrap  " + cls + "'></div>")
+        el.addClass('input-qty').wrap("<div class='wrap input-wrap  " + cls + "'></div>")
 
         var label = conf.label
         var after_labels = conf.after_labels
@@ -2271,7 +2271,7 @@ ES.ui.input_qty = function (config) {
                 var tips = '<div class="msg-tip error">' + msg + '</div>'
                 ES.get(tips).insertBefore(this.el)
             } else {
-                this.el.parent().children('.msg').adESlass('error').html('<i class="fa fa-timES-circle"></i> ' + msg).show()
+                this.el.parent().children('.msg').addClass('error').html('<i class="fa fa-timES-circle"></i> ' + msg).show()
             }
         }
 
@@ -2306,7 +2306,7 @@ ES.ui.tab_h = function (config) {
         ES.get(id + ' .tab').on('click', function () {
             var last_index = $(this).parent().children('.current').data().index
             $(this).parent().children().removeClass('current')
-            var index = $(this).adESlass('current').data().value
+            var index = $(this).addClass('current').data().value
             var list = ES.get(id + ' .panel')
             list.hide()
             list.eq(+index).show()
@@ -2340,7 +2340,7 @@ ES.ui.tab_v = function (config) {
         ES.get(id + ' .tab').on('click', function () {
             var last_index = $(this).parent().children('.current').data().index
             $(this).parent().children().removeClass('current')
-            var index = $(this).adESlass('current').data().index
+            var index = $(this).addClass('current').data().index
             var list = ES.get(id + ' .panel')
             list.hide()
             list.eq(+index).show()
@@ -2456,7 +2456,7 @@ ES.ui.date_selector = function (config) {
             this.set_current(sel_index)
         }
         this.set_current = function (index) {
-            var li = this.el.children('.date-selector').children('ul').children('li').removeClass('date-selector-selected').eq(index + 1).adESlass('date-selector-selected')
+            var li = this.el.children('.date-selector').children('ul').children('li').removeClass('date-selector-selected').eq(index + 1).addClass('date-selector-selected')
             ES.event.fire(this.id, 'change', li.data().value)
         }
         this.set_date(config.date)
@@ -2482,7 +2482,7 @@ ES.ui.paging = function (config) {
         var el = $(id)
 
         this.el = el
-        this.el.adESlass('paging')
+        this.el.addClass('paging')
         this.id = conf.el
         this.show_per_page = conf.perPage || true
 
@@ -2592,7 +2592,7 @@ ES.ui.paging = function (config) {
                 var set_pagESize_link = $('#' + this.id + ' .paging-info a')
                 set_pagESize_link.each(function (_, v) {
                     if (ES.get(v).html() == ES.pagESize) {
-                        ES.get(v).adESlass('active')
+                        ES.get(v).addClass('active')
                     }
                 })
                 set_pagESize_link.click(ES.delegate(function (e) {
@@ -2828,7 +2828,7 @@ ES.ui.slider = function (id, itemWidth, itemHeight, tailOffset, transType) {
         pagES.push('<span class="slider-selector">&nbsp;</span>')
     }
     div.children('.slider-pagES').html(pagES.join(''))
-    ES.get(id + ' .slider-selector').eq(0).adESlass('slider-selected')
+    ES.get(id + ' .slider-selector').eq(0).addClass('slider-selected')
 
     var intveral = null
     var time_span = 5000
@@ -2847,7 +2847,7 @@ ES.ui.slider = function (id, itemWidth, itemHeight, tailOffset, transType) {
                 }).fadeIn()
             })
         }
-        ES.get(id + ' .slider-selector').removeClass('slider-selected').eq(index).adESlass('slider-selected')
+        ES.get(id + ' .slider-selector').removeClass('slider-selected').eq(index).addClass('slider-selected')
         intervelSpan()
     }
     var current = 0
@@ -3013,7 +3013,7 @@ ES.ui.table_form = function (config) {
         }
 
         this.setMsg = function (target, msg) {
-            target.adESlass('error_frame')
+            target.addClass('error_frame')
             $('.popup-error').html('<i class="fa fa-timES-circle"></i> ' + msg).show().parent().show()
         }
 
@@ -3050,7 +3050,7 @@ ES.ui.table_form = function (config) {
                         var input = ES.get('#tableConsigneeForm tbody tr:eq(' + i + ')').find('td:eq(' + j + ')').find('input')
                         var value = input.val()
                         if (!this.items[j].validate(value)) {
-                            input.adESlass('error_frame')
+                            input.addClass('error_frame')
                             return false
                         }
                     }

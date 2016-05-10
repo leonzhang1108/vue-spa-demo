@@ -89,14 +89,5 @@
     }
 </script>
 <style>
-    label {
-        display: block;
-        margin-bottom: 1.5em;
-    }
 
-    label > span {
-        display: inline-block;
-        width: 8em;
-        vertical-align: top;
-    }
 </style>
