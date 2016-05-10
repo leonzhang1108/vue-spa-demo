@@ -15,7 +15,6 @@
 <script>
     var storeAction = require('../../js/vuex/shell/actions')
     var headSticker = require('../../js/common/jquery-head-sticker.js')
-    var tab = require('./tab.vue')
     module.exports = {
         vuex: {
             getters: {
@@ -38,10 +37,10 @@
                 })
                 headSticker()
             }
-        },
-        components: {
-            tab
         }
+//        components: {
+//            tab
+//        }
     }
 </script>
 <style>

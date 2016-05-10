@@ -7,6 +7,7 @@ global.Vue = require('vue')
 global.Vuex = require('vuex')
 global.ES = require('../common/ui.js')
 global.localStorage = window.localStorage
+global.interfacePort = require('../interface/interface.js');
 require("jquery-ui")
 require("../../css/vue-demo.css");
 require("bootstrap/dist/css/bootstrap.css");

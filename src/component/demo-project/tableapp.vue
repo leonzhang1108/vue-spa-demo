@@ -6,28 +6,28 @@
     <div style="margin:20px 0px;"></div>
     <div class="form">
         <input_filter input-type="dropdown" input-name="收货单位" input-id="consignee"
-                      data-option='{"dataPath":"../src/js/component/data/consignee.json"}'></input_filter>
+                      data-option='{"dataPath":"../data/consignee.json"}'></input_filter>
         <my_input input-type="text" input-name="生产订单号" input-id="orderNumber"
-                  data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
+                  data-option='{"dataPath":"../data/vesselName.json"}'></my_input>
         <my_input input-type="text" input-name="子项号" input-id="subNumber"
-                  data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
+                  data-option='{"dataPath":"../data/vesselName.json"}'></my_input>
         <input_filter input-type="dropdown" input-name="船名" input-id="vessel"
-                      data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></input_filter>
+                      data-option='{"dataPath":"../data/vesselName.json"}'></input_filter>
         <my_input input-type="text" input-name="航次" input-id="voyage"
-                  data-option='{"dataPath":"../src/js/component/data/vesselName.json"}'></my_input>
+                  data-option='{"dataPath":"../data/vesselName.json"}'></my_input>
         <date_input input-type="date" input-name="船期" input-id="etd"></date_input>
     </div>
     <button @click="queryData">查询</button>
-    <my_table data-option='{"dataPath":"../src/js/component/data/table-page1.json"}' :data-columns="dataColumns" ,
+    <my_table data-option='{"dataPath":"../data/table-page1.json"}' :data-columns="dataColumns" ,
               :view-data.sync="dataList"></my_table>
 
 </template>
 <script>
 
-    var my_table = require('bundle?lazy!./tablecp/table.vue');
-    var my_input = require('bundle?lazy!./tablecp/input.vue');
-    var input_filter = require('bundle?lazy!./tablecp/filter.vue');
-    var date_input = require('bundle?lazy!./tablecp/date_input.vue');
+    var my_table = require('bundle?lazy!./../module/table.vue');
+    var my_input = require('bundle?lazy!./../module/input.vue');
+    var input_filter = require('bundle?lazy!./../module/filter.vue');
+    var date_input = require('bundle?lazy!./../module/date_input.vue');
 
     var jquery_ui = require('bundle?lazy!jquery-ui')
 
@@ -61,7 +61,7 @@
 
             },
             queryData: function () {
-                var url = "../src/js/component/data/table-page2.json";
+                var url = "../data/table-page2.json";
                 this.getData(url)
             }
         },
@@ -84,7 +84,7 @@
             }
         },
         ready: function () {
-            var url = "../src/js/component/data/table-page1.json";
+            var url = "../data/table-page1.json";
             this.getData(url);
         }
     }

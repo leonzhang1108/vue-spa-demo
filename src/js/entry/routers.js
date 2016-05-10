@@ -3,11 +3,11 @@
  */
 module.exports = function (router) {
     var Index = require('bundle?lazy!../../component/shell/index.vue')
-    var About = require('bundle?lazy!../../component/about.vue');
+    var Control = require('bundle?lazy!../../component/vue-control.vue');
     var Services = require('bundle?lazy!../../component/services.vue');
     var Watch = require('bundle?lazy!../../component/watch.vue');
     var Vuex = require('bundle?lazy!../../component/vuex/vuexapp.vue');
-    var Table = require('bundle?lazy!../../component/table/tableapp.vue');
+    var Table = require('bundle?lazy!../../component/demo-project/tableapp.vue');
     var Form = require('bundle?lazy!../../component/form/form.vue');
     var Brotherhood = require('bundle?lazy!../../component/brotherhood.vue');
     router.map({
@@ -21,7 +21,7 @@ module.exports = function (router) {
         },
         '/about': {
             name: "about",
-            component: About
+            component: Control
         },
         "/services": {
             name: "services",

@@ -1,6 +1,6 @@
 <script>
 
-    var headSticker = require('../../../js/common/jquery-head-sticker.js')
+    var headSticker = require('../../js/common/jquery-head-sticker.js')
 
     module.exports = {
         mixins: [require('vue-resize-mixin')],
