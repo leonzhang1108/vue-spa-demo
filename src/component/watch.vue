@@ -53,7 +53,7 @@
                     methods: {}
                 })
                 // 挂载到元素上
-                profile.$mount().$appendTo('#'+thisId)
+                profile.$mount().$appendTo('#insertPlace')
             },
             changeRouter: function () {
                 console.log(VueRouter())
