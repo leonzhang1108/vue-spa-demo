@@ -14,7 +14,7 @@
             })
         }
     }
-</script>int
+</script>
 <template>
     <input type="text" id="{{id}}" name="{{name}}"/>
 </template>

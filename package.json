@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --progress --inline --hot --port 1108 --config webpack.dev.js",
+    "dev": "webpack-dev-server --progress --inline --hot --port 2216 --config webpack.dev.js",
     "build": "webpack --progress --hide-modules --config webpack.build.js"
   },
   "author": "leon",

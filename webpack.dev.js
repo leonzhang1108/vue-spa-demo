@@ -31,7 +31,7 @@ var plugins = [
         $: 'jquery'
     }),
     new OpenBrowserPlugin({
-        url: 'http://localhost:1108'
+        url: 'http://localhost:2216'
     })
 ];
 
