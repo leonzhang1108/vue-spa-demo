@@ -8,8 +8,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var vue = require("vue-loader");
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
-var entry = ['./src/js/entry/vue-entry-demo.js'],
-    buildPath = "/dist/";
+var entry = ['./src/js/entry/ansteel/vue-entry-demo.js'],
+    buildPath = "/ansteel/";
 
 
 function clear(_path, _fs) {
@@ -28,7 +28,7 @@ function clear(_path, _fs) {
     }
     return false
 }
-clear('./dist/', require('fs'))
+clear('./ansteel/', require('fs'))
 
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),

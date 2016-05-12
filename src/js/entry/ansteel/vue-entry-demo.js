@@ -5,34 +5,34 @@
 global._ = require('underscore')
 global.Vue = require('vue')
 global.Vuex = require('vuex')
-global.ES = require('../common/ui.js')
+global.ES = require('../../common/ui.js')
 global.localStorage = window.localStorage
-global.interfacePort = require('../interface/interface.js');
+global.interfacePort = require('../../interface/interface.js');
 require("jquery-ui")
-require("../../css/vue-demo.css");
-require("../../css/style.css");
+require("../../../css/vue-demo.css");
+require("../../../css/style.css");
 require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
 require("font-awesome-webpack");
-require('../../../node_modules/purecss/build/pure-min.css');
+require('../../../../node_modules/purecss/build/pure-min.css');
 //国际化
 global.localize = {};
 require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (require) {
 
     localStorage.clear()
     // init shell
-    var vueShell = require('../../component/shell/shell.vue')
+    var vueShell = require('../../../component/shell/shell.vue')
     Vue.component('vue-shell', vueShell)
 
     // Locale
     var VueLocale = require('vue-i18n')
-    localize.ja = require('../common/localize/ja');
-    localize.zh = require('../common/localize/zh');
-    localize.en = require('../common/localize/en');
+    localize.ja = require('../../common/localize/ja');
+    localize.zh = require('../../common/localize/zh');
+    localize.en = require('../../common/localize/en');
     Vue.use(VueLocale, {locales: localize});
     Vue.config.lang = 'zh';
-    var paging = require('../../component/paging/paging.vue')
+    var paging = require('../../../component/paging/paging.vue')
     var zPagenav = require('vue-pagenav')
 
     Vue.use(require('vue-resource'))

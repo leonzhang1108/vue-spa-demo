@@ -8,8 +8,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var OpenBrowserPlugin = require('open-browser-webpack-plugin');
 
-var entry = ['./src/js/entry/vue-entry-demo.js'],
-    buildPath = "/dist/";
+var entry = ['./src/js/entry/ansteel/vue-entry-demo.js'],
+    buildPath = "/ansteel/";
 
 
 var plugins = [
