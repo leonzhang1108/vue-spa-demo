@@ -14,8 +14,8 @@
     var vueHead = require('bundle?lazy!./head.vue')
     var vueMenu = require('bundle?lazy!./menu.vue')
     var vueBreadcrumb = require('bundle?lazy!./breadcrumb.vue')
-    var store = require("../../js/vuex/shell/store");
-    var headSticker = require('../../js/common/jquery-head-sticker.js')
+    var store = require("../../../js/vuex/shell/store");
+    var headSticker = require('../../../js/common/jquery-head-sticker.js')
     module.exports = {
         store,
         components: {

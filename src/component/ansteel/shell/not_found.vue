@@ -6,7 +6,7 @@
          title="内容没找到，Σ( ° △ °|||)︴">
 </template>
 <script>
-    var not_found_page = require('../../pic/404.png')
+    var not_found_page = require('../../../pic/404.png')
     module.exports = {
         data: function () {
             return {

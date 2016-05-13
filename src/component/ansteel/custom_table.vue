@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    require("../css/style.css");
+    require("../../css/style.css");
 
     var map = require("bundle?lazy!./map.vue");
 

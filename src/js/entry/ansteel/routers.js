@@ -2,14 +2,14 @@
  * Created by leon on 2016/5/2.
  */
 module.exports = function (router) {
-    var Index = require('bundle?lazy!../../../component/shell/index.vue')
-    var Control = require('bundle?lazy!../../../component/vue-control.vue');
-    var Services = require('bundle?lazy!../../../component/services.vue');
-    var Watch = require('bundle?lazy!../../../component/watch.vue');
+    var Index = require('bundle?lazy!../../../component/ansteel/shell/index.vue')
+    var Control = require('bundle?lazy!../../../component/ansteel/vue-control.vue');
+    var Services = require('bundle?lazy!../../../component/ansteel/services.vue');
+    var Watch = require('bundle?lazy!../../../component/ansteel/watch.vue');
     var Vuex = require('bundle?lazy!../../../component/vuex/vuexapp.vue');
     var Table = require('bundle?lazy!../../../component/demo-project/tableapp.vue');
     var Form = require('bundle?lazy!../../../component/form/form.vue');
-    var Brotherhood = require('bundle?lazy!../../../component/brotherhood.vue');
+    var Brotherhood = require('bundle?lazy!../../../component/ansteel/brotherhood.vue');
     router.map({
         '/': {
             name: "index",
@@ -45,10 +45,10 @@ module.exports = function (router) {
         },
         '/forbidden': {
             name: 'forbidden',
-            component: require('../../../component/shell/forbidden.vue')
+            component: require('../../../component/ansteel/shell/forbidden.vue')
         },
         '*': {
-            component: require('../../../component/shell/not_found.vue')
+            component: require('../../../component/ansteel/shell/not_found.vue')
         }
     })
 

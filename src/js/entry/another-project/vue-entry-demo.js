@@ -22,7 +22,7 @@ require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (
 
     localStorage.clear()
     // init shell
-    var vueShell = require('../../../component/shell/shell.vue')
+    var vueShell = require('../../../component/ansteel/shell/shell.vue')
     Vue.component('vue-shell', vueShell)
 
     // Locale
