@@ -7,6 +7,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var vue = require("vue-loader");
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 var entry = ['./src/js/entry/ansteel/vue-entry-demo.js'],
     buildPath = "/ansteel/";
@@ -32,6 +33,7 @@ clear('./ansteel/', require('fs'))
 
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
+    new ProgressBarPlugin(),
     new HtmlWebpackPlugin({
         template: "src/html/index.html",
         filename: "index.html",
