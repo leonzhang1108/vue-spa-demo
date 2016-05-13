@@ -9,9 +9,6 @@ var vue = require("vue-loader");
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
-var entry = ['./src/js/entry/ansteel/vue-entry-demo.js'],
-    buildPath = "/ansteel/";
-
 
 function clear(_path, _fs) {
     if (_fs.existsSync(_path)) {
@@ -29,12 +26,11 @@ function clear(_path, _fs) {
     }
     return false
 }
-clear('./ansteel/', require('fs'))
+
 
 var plugins = [
     new webpack.optimize.CommonsChunkPlugin('common.js'),
-    new ProgressBarPlugin(),
-    new HtmlWebpackPlugin({
+        new HtmlWebpackPlugin({
         template: "src/html/index.html",
         filename: "index.html",
         hash: true
@@ -54,39 +50,51 @@ var plugins = [
             warnings: false
         }
     }),
-    new webpack.optimize.DedupePlugin()
+    new webpack.optimize.DedupePlugin(),
+    new ProgressBarPlugin()
 ];
 
-module.exports = {
-    debug: false,
-    entry: entry,
-    output: {
-        path: __dirname + buildPath,
-        filename: 'build.js',
-        publicPath: '',
-        chunkFilename: "chunks/[id].chunk.[chunkhash].js"
-    },
-    module: {
-        loaders: [
-            {test: /\.vue$/, loader: 'vue'},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!cssnext-loader!autoprefixer") },
-            {test: /\.(jpg|png|gif)$/, loader: "file-loader?name=images/[name].[hash].[ext]" },
-            {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
-            {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
-            {test: /\.json$/, loader: 'json' },
-            {test: /\.(html|tpl)$/, loader: 'html-loader' },
-            {test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015!jshint-loader'}
-            //{ test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react'
-        ]
-    },
-    vue: {
-        loaders: {
-            css: ExtractTextPlugin.extract("css")
-        }
-    },
-    resolve: {
-        extension: ['', '.js'],
-        alias: {}
-    },
-    plugins: plugins
-};
+module.exports = function(projectName){
+
+    var entry = ['./src/js/entry/'+projectName+'/vue-entry-demo.js'],
+        buildPath = "/"+projectName+"/";
+
+    clear('./'+projectName+'/', require('fs'))
+
+    var webpackConfig = {
+        debug: false,
+        entry: entry,
+        output: {
+            path: __dirname + buildPath,
+            filename: 'build.js',
+            publicPath: '',
+            chunkFilename: "chunks/[id].chunk.[chunkhash].js"
+        },
+        module: {
+            loaders: [
+                {test: /\.vue$/, loader: 'vue'},
+                {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!cssnext-loader!autoprefixer") },
+                {test: /\.(jpg|png|gif)$/, loader: "file-loader?name=images/[name].[hash].[ext]" },
+                {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
+                {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
+                {test: /\.json$/, loader: 'json' },
+                {test: /\.(html|tpl)$/, loader: 'html-loader' },
+                {test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015!jshint-loader'}
+                //{ test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react'
+            ]
+        },
+        vue: {
+            loaders: {
+                css: ExtractTextPlugin.extract("css")
+            }
+        },
+        resolve: {
+            extension: ['', '.js'],
+            alias: {}
+        },
+        plugins: plugins
+    };
+
+
+    return webpackConfig
+}

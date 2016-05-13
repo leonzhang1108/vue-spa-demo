@@ -12,13 +12,11 @@ var webpack = require('gulp-webpack');
 var projectList = ['ansteel','another-project']
 
 gulp.task('default', function() {
-
     iterateAllFolder(function(projectName){
         gulp.src('./src/js/entry/'+projectName+'/vue-entry-demo.js')
-            .pipe(webpack(require('./webpack.build.js')))
+            .pipe(webpack(require('./webpack.build.js')(projectName)))
             .pipe(gulp.dest('./'+projectName))
     })
-
 });
 
 function iterateAllFolder(cb) {
