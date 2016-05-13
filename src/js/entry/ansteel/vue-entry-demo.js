@@ -15,7 +15,7 @@ require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
 require("font-awesome-webpack");
-require('../../../../node_modules/purecss/build/pure-min.css');
+require('purecss/build/pure-min.css');
 //国际化
 global.localize = {};
 require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (require) {

@@ -59,9 +59,10 @@ module.exports = function(projectName){
     var entry = ['./src/js/entry/'+projectName+'/vue-entry-demo.js'],
         buildPath = "/"+projectName+"/";
 
+    //删除原文件
     clear('./'+projectName+'/', require('fs'))
 
-    var webpackConfig = {
+    return {
         debug: false,
         entry: entry,
         output: {
@@ -93,8 +94,5 @@ module.exports = function(projectName){
             alias: {}
         },
         plugins: plugins
-    };
-
-
-    return webpackConfig
+    }
 }

@@ -1,7 +1,7 @@
 <script>
     var elid = "";
     module.exports = {
-        props: [ "dataOption", "inputId", "inputName"],
+        props: ["dataOption", "inputId", "inputName"],
         data: function () {
             var option = JSON.parse(this.dataOption);
             return {
@@ -18,7 +18,7 @@
                 var div = $("#idrop-" + this.elId);
                 $(".showInput").hide();
                 var top = el.target.offsetHeight + el.target.offsetTop;
-                div.show(), div.css("left", el.target.offsetLeft + "px"),div.css("top",  top + "px"), div.css("min-width", el.target.offsetWidth + "px");
+                div.show(), div.css("left", el.target.offsetLeft + "px"), div.css("top", top + "px"), div.css("min-width", el.target.offsetWidth + "px");
                 el.srcElement.select();
                 this.dataList = searchData(this.dataDefault, this.noResultsMsg, this.elId);
                 elid = this.elId;
@@ -27,7 +27,7 @@
             selectData: function (el) {
                 if (el.toElement.dataset.values != 0) {
                     var input = $("#" + this.elId);
-                    var div = $("#idrop-" + this.elId);                     
+                    var div = $("#idrop-" + this.elId);
                     input.val(el.target.innerHTML.trim()), div.hide();
                 }
             },
@@ -44,15 +44,15 @@
             //获取数据
             getData: function () {
                 var option = JSON.parse(this.dataOption);
-                    var url = option.dataPath;
-                    this.$http({
-                        url: url,
-                        method: 'GET',
-                    }).then(function (response) {                        
-                        this.dataDefault = response.data;
-                    }, function (response) {
-                        //request error
-                    });
+                var url = option.dataPath;
+                this.$http({
+                    url: url,
+                    method: 'GET',
+                }).then(function (response) {
+                    this.dataDefault = response.data;
+                }, function (response) {
+                    //request error
+                });
             }
         },
         ready: function () {
@@ -92,7 +92,7 @@
 <template>
     <div class="input-item">
         <label style="display: inline-block;" class="input-label">{{name}}：</label>
-        <input type="text" id="{{elId}}" @focus="showDataList" @keyup="searchData" />
+        <input type="text" id="{{elId}}" @focus="showDataList" @keyup="searchData"/>
         <div id="idrop-{{elId}}" class="showInput">
             <div v-for="item in dataList" data-values="{{item.dataValue}}" id="idrop-item-{{elId}}" @click="selectData">
                 {{item.dataText }}
@@ -127,9 +127,11 @@
     .showInput div:hover {
         background: #eee;
     }
+
     .input-item {
-        float: left ;
+        float: left;
     }
+
     .input-label {
         width: 100px;
         text-align: right;
