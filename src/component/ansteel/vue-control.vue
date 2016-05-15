@@ -11,7 +11,6 @@
     var store = require('../../js/vuex/table/store')
     module.exports = {
         ready: function(){
-            console.log('rrrrrrrrrrrrrrrrrrready')
             console.log(ES.ui.get('select'))
         },
         data: function(){

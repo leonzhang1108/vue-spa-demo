@@ -10,10 +10,11 @@ module.exports = function (router) {
     var Table = require('bundle?lazy!../../../component/demo-project/tableapp.vue');
     var Form = require('bundle?lazy!../../../component/form/form.vue');
     var Brotherhood = require('bundle?lazy!../../../component/ansteel/brotherhood.vue');
+    var TableDemo = require('bundle?lazy!../../../component/ansteel/vue_table_demo.vue');
     router.map({
         '/': {
             name: "index",
-            component: Index
+            component: TableDemo
         },
         '/home': {
             name: "home",
