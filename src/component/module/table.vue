@@ -74,7 +74,7 @@
             <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :total.sync="units.total" ,
                       :max-link.sync="maxlink" :event-name="eventName"></zpagenav>
             <div class="pageDec">
-                <span class="paging-info">{{ $t('message.pagenav', { page:page,sumPage:units.total,pagesize:Math.ceil(units.total/pageSize)}) }}</span>                
+                <span class="paging-info">{{ $t('message.pagenav', { page:page,sumPage:units.total,pagesize:Math.ceil(units.total/pageSize)}) }}</span>
                 <span class="paging-info"> {{ $t("message.eachPageShow") }}：
                 <select id="paging-size-select" @change="pagesizeChange">
                     <option value="10" selected>10</option>
@@ -94,15 +94,12 @@
         border-top: 0px;
         background-color: #F9FAFB;
         overflow: auto;
-        margin-top: -24px;
+        margin-top: -30px;
     }
 
     .pagenav nav.zpagenav {
-        float: right;
         padding-right: 15px;
-
-        width: calc(50% - 15px);
-        text-align: right;
+        text-align: center;
     }
     .pagenav div.pageDec {
         float: left;

@@ -1,11 +1,3 @@
-<script type="text/javascript">
-    module.exports = {
-        props: {
-            data: Array,
-            columns: Array
-        }
-    }
-</script>
 <template>
     <table>
         <thead>
@@ -23,7 +15,16 @@
         </tr>
         </tbody>
     </table>
+
 </template>
+<script type="text/javascript">
+    module.exports = {
+        props: {
+            data: Array,
+            columns: Array
+        }
+    }
+</script>
 <style>
 
     .sticky-enabled td{

@@ -4,7 +4,7 @@
             form: function (config) {
                 var items = []
                 $.each(config.component.$children, function (_, item) {
-                    if(item.$el.className.indexOf('vue-form')>=0){
+                    if(item.$el.className && item.$el.className.indexOf('vue-form')>=0){
                         $.each(item.$children, function (index, it) {
                             items.push(ES.ui.get(it.$el.id))
                         })

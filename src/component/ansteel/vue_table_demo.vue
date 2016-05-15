@@ -9,6 +9,10 @@
             :data="gridData"
             :columns="gridColumns">
     </vue_table>
+    <div class="pagenav">
+        <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :total.sync="pageTotal" ,
+                  :max-link.sync="maxlink" :event-name="eventName"></zpagenav>
+    </div>
 </template>
 <script type="text/javascript">
     var vue_table = require('../widget/vue_table.vue')
@@ -34,7 +38,17 @@
                     {key: 'vesselVoyageInfo', name: '船名航次'},
                     {key: 'weightValue', name: '重量'},
                 ],
-                gridData: []
+                gridData: [],
+                pageSize: 10,
+                page: 1,
+                pageTotal: 1000,
+                maxlink: 10,
+                eventName: "custom"
+            }
+        },
+        events: {
+            custom: function (page) {
+                this.getData(page)
             }
         },
         computed: {
@@ -43,12 +57,14 @@
             }
         },
         methods: {
-            getData: function () {
+            getData: function (page) {
                 this.formClick()
                 var requestData = ES.ui.get('test_form').get_value()||{}
-                console.log(requestData)
+                console.log(page)
+                console.log('doajax')
                 vueUtil.ajax_get({
                     requestData: requestData,
+                    page: page||1,
                     url: 'src/component/data/table-page2.json',
                     scope: this,
                     cbFunc: function (response) {
