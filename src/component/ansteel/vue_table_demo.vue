@@ -14,7 +14,7 @@
 
     <vue_table :data="gridData" :columns="gridColumns"></vue_table>
 
-    <vue_paging :page="page" :page-size="pageSize" :page-total="pageTotal" event-name="changePage"></vue_paging>
+    <vue_paging :page="page" :page-size="pageSize" :page-total="pageTotal" event-name="changePage" event-page-size="changePageSize"></vue_paging>
 </template>
 <script type="text/javascript">
     var vue_table = require('../widget/vue_table.vue')
@@ -52,6 +52,9 @@
         events: {
             changePage: function (page) {
                 this.getData(page)
+            },
+            changePageSize: function(el) {
+                console.log(el)
             }
         },
         computed: {
