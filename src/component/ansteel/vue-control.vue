@@ -6,7 +6,7 @@
     </vue_form>
 </template>
 <script>
-    var vue_form = require('bundle?lazy!./../widget/form.vue')
+    var vue_form = require('bundle?lazy!./../widget/vue_form.vue')
     var actions = require('../../js/vuex/table/actions')
     var store = require('../../js/vuex/table/store')
     module.exports = {

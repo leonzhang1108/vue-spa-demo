@@ -31,6 +31,9 @@ interfacePort.input_port = function (config){
 interfacePort.input_city = function (config){
 	return ES.ui.input_city(config);
 };
+interfacePort.input_date_input = function (config){
+	return ES.ui.input_date_input(config);
+};
 
 interfacePort.mvx = ES.mvx;
 

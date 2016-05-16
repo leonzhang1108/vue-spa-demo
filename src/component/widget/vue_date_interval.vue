@@ -5,15 +5,20 @@
             "name":String,
             "label": String,
             "cls": String,
-            "placeholder":String
+            "placeholder":String,
+            "after_labels":String,
+            "to_name":String
         },
         ready:function(){
-            interfacePort.input({
+            console.log(this.toName)
+            interfacePort.input_date_input({
                 label: this.label+"：",
                 el: this.id,
                 placeholder: this.placeholder || '',
                 nonempty: true,
-                cls: this.cls || ''
+                cls: this.cls || '',
+                after_labels: eval(this.after_labels) || [],
+                toName: this.to_name || ''
             })
         }
     }

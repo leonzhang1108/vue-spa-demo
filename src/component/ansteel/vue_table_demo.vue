@@ -2,14 +2,13 @@
     <vue_form id='test_form' @click="formClick">
         <vue_select id="select" name="select" label="test_select" :data-list="selectData"></vue_select>
         <vue_input id="input" name="input" label="test_input"></vue_input>
+        <vue_input id="date" class="date" cls="date" name="date" label="test_date"></vue_input>
         <vue_filter id="filter" name="filter" label="test_filter" :data="filterChange"></vue_filter>
+        <vue_date_interval id="test_date_input" name="date_input_from" label="test_date_input" after_labels="['&nbsp;至&nbsp;']" to_name="date_input_to" ></vue_date_interval>
         <div style="clear: both;"></div>
     </vue_form>
     <button @click="getData()">查询</button>
-    <vue_table
-            :data="gridData"
-            :columns="gridColumns">
-    </vue_table>
+    <vue_table :data="gridData" :columns="gridColumns"></vue_table>
     <div class="pagenav">
         <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :total.sync="pageTotal" ,
                   :max-link.sync="maxlink" :event-name="changePage"></zpagenav>
@@ -18,7 +17,7 @@
 <script type="text/javascript">
     var vue_table = require('../widget/vue_table.vue')
     var vueUtil = require('../util/vue-util.vue').methods
-    var vue_form = require('bundle?lazy!./../widget/form.vue')
+    var vue_form = require('bundle?lazy!./../widget/vue_form.vue')
     module.exports = {
         data: function () {
             return {
