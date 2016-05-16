@@ -10,10 +10,8 @@
             "eventPageSize": String
         },
         methods: {
-            changePageSize:function(el){
-                console.log(el.target.value)
-                console.log(this.$dispatch)
-                this.$dispatch(this.eventPageSize)
+            changePageSize: function (el) {
+                this.$dispatch(this.eventPageSize, el.target.value)
             }
         }
     }
@@ -26,9 +24,9 @@
         <div class="es-selectPageSize">
             <span>每页显示：</span>
             <select class="pageSize" @change="changePageSize">
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="15">15</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
             </select>
         </div>
     </div>
@@ -37,9 +35,11 @@
     .pagination {
         margin: 0;
     }
+
     .pagenav {
-        border: 0 ;
+        border: 0;
     }
+
     .es-paging-msg {
         float: left;
         width: 30%;
@@ -47,10 +47,12 @@
         text-align: right;
         line-height: 40px;
     }
-    .pagenav nav.zpagenav{
+
+    .pagenav nav.zpagenav {
         float: left;
         width: 40%;
     }
+
     .es-selectPageSize {
         float: left;
         height: 40px;

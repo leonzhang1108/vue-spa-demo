@@ -6,7 +6,8 @@
             <vue_input id="input" name="input" label="input"></vue_input>
             <vue_input id="date" class="date" cls="date" name="date" label="date"></vue_input>
             <vue_filter id="filter" name="filter" label="filter" :data="filterChange"></vue_filter>
-            <vue_date_interval id="test_date_input" name="date_input_from" label="date_input" after_labels="['&nbsp;至&nbsp;']" to_name="date_input_to" ></vue_date_interval>
+            <vue_date_interval id="test_date_input" name="date_input_from" label="date_input"
+                               after_labels="['&nbsp;至&nbsp;']" to_name="date_input_to"></vue_date_interval>
             <div class="btn-form">
                 <button @click="getData()">查询</button>
             </div>
@@ -17,7 +18,8 @@
 
     <vue_table :data="gridData" :columns="gridColumns"></vue_table>
 
-    <vue_paging :page="page" :page-size="pageSize" :page-total="pageTotal" event-name="changePage" event-page-size="changePageSize"></vue_paging>
+    <vue_paging :page="page" :page-size="pageSize" :page-total="pageTotal" event-name="changePage"
+                event-page-size="changePageSize"></vue_paging>
 </template>
 <script type="text/javascript">
     var vue_table = require('../widget/vue_table.vue')
@@ -56,8 +58,9 @@
             changePage: function (page) {
                 this.getData(page)
             },
-            changePageSize: function(el) {
-                console.log(el)
+            changePageSize: function (value) {
+                this.pageSize = parseInt(value)
+                this.getData()
             }
         },
         computed: {
@@ -75,7 +78,7 @@
                         for (var i = 0; i < dataResT.length; i++) {
                             arrayResT[i] = dataResT[i].name;
                         }
-                        ES.ui.get('filter').data =  arrayResT
+                        ES.ui.get('filter').data = arrayResT
                     }
                 })
             }
@@ -84,17 +87,16 @@
             getData: function (page) {
                 this.formClick()
                 var requestData = ES.ui.get('test_form').get_value() || {}
-                console.log(page)
-                console.log(requestData)
-                console.log('doAjax')
+                requestData.page = page || 1
+                requestData.pageSize = this.pageSize
+
                 vueUtil.ajax_get({
                     requestData: requestData,
-                    page: page || 1,
                     url: 'src/component/data/table-page2.json',
                     scope: this,
                     cbFunc: function (response) {
                         this.gridData = response.data.items
-                        this.pageTotal =  response.data.items.length
+                        this.pageTotal = response.data.items.length
                     }
                 })
             },
