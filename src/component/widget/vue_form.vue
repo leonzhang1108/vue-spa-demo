@@ -25,4 +25,7 @@
         float: left;
         margin-right: 10px;
     }
+    #search-form .input-wrap {
+        margin-bottom: 10px;
+    }
 </style>

@@ -72,4 +72,29 @@ https://github.com/yui/pure/blob/master/LICENSE.md
     float: left;
     margin-right: 5px;
     margin-bottom: 0px;
+    line-height: 26px;
+}
+input[type="text"], input[type="password"], select, textarea {
+    outline: 0;
+    color: #555;
+    width: 150px;
+    line-height: 26px;
+    border: 1px solid #ccc;
+    padding: 0 20px 0 32px;
+    font-size: 12px;
+}
+select {
+    height: 28px;
+    padding: 0 0 0 5px;
+}
+#search-form {
+    width: 100%;
+    border: 1px solid #c1c1c1;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #fff;
+    border-radius: 5px;
+    overflow: auto;
+    font-size: 13px;
+    line-height: 26px;
 }

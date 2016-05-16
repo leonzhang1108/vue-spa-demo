@@ -1,16 +1,19 @@
 <template>
-    <vue_form id='test_form' @click="formClick">
-        <vue_select id="select" name="select" label="test_select" :data-list="selectData"></vue_select>
-        <vue_input id="input" name="input" label="test_input"></vue_input>
-        <vue_input id="date" class="date" cls="date" name="date" label="test_date"></vue_input>
-        <vue_filter id="filter" name="filter" label="test_filter" :data="filterChange"></vue_filter>
-        <vue_date_interval id="test_date_input" name="date_input_from" label="test_date_input" after_labels="['&nbsp;至&nbsp;']" to_name="date_input_to" ></vue_date_interval>
-        <div style="clear: both;"></div>
-    </vue_form>
-    <button @click="getData()">查询</button>
+    <div id="search-form">
+        <vue_form id='test_form' @click="formClick">
+            <vue_select id="select" name="select" label="select" :data-list="selectData"></vue_select>
+            <vue_input id="input" name="input" label="input"></vue_input>
+            <vue_input id="date" class="date" cls="date" name="date" label="date"></vue_input>
+            <vue_filter id="filter" name="filter" label="filter" :data="filterChange"></vue_filter>
+            <vue_date_interval id="test_date_input" name="date_input_from" label="date_input" after_labels="['&nbsp;至&nbsp;']" to_name="date_input_to" ></vue_date_interval>
+            <div style="clear: both;"></div>
+        </vue_form>
+        <button @click="getData()">查询</button>
+    </div>
     <vue_table :data="gridData" :columns="gridColumns"></vue_table>
     <div class="pagenav">
-        <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :total.sync="pageTotal" ,
+        <div class="es-paging-msg">页码:{{page}}/{{Math.ceil(pageTotal/pageSize)}}&nbsp;总共：{{pageTotal}}条</div>
+        <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :pageTotal.sync="pageTotal" ,
                   :max-link.sync="maxlink" :event-name="changePage"></zpagenav>
     </div>
 </template>
@@ -39,9 +42,9 @@
                     {key: 'weightValue', name: '重量'}
                 ],
                 gridData: [],
-                pageSize: 10,
+                pageSize: 25,
                 page: 1,
-                pageTotal: 1000,
+                pageTotal: 0,
                 maxlink: 10,
                 changePage: "changePage"
             }
@@ -85,6 +88,7 @@
                     scope: this,
                     cbFunc: function (response) {
                         this.gridData = response.data.items
+                        this.pageTotal =  response.data.items.length
                     }
                 })
             },
