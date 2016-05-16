@@ -10,7 +10,6 @@
             "to_name":String
         },
         ready:function(){
-            console.log(this.toName)
             interfacePort.input_date_input({
                 label: this.label+"：",
                 el: this.id,
@@ -26,3 +25,9 @@
 <template>
     <input type="text" id="{{id}}" name="{{name}}"/>
 </template>
+<style>
+    .input_date_input input {
+        width: 87px;
+        padding: 0 10px;
+    }
+</style>

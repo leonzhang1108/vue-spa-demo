@@ -76,6 +76,7 @@
                 this.formClick()
                 var requestData = ES.ui.get('test_form').get_value() || {}
                 console.log(page)
+                console.log(requestData)
                 console.log('doAjax')
                 vueUtil.ajax_get({
                     requestData: requestData,

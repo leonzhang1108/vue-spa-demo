@@ -10,12 +10,6 @@
             Vue.component('vue_input',require('bundle?lazy!./vue_input.vue'))
             Vue.component('vue_filter',require('bundle?lazy!./vue_filter.vue'))
             Vue.component('vue_date_interval',require('bundle?lazy!./vue_date_interval.vue'))
-        },
-        attached:function(){
-            var component = this
-            this.$nextTick(function(){
-                console.log(component.$children)
-            })
         }
     }
 </script>
