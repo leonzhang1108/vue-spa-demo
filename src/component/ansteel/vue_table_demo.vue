@@ -1,4 +1,5 @@
 <template>
+
     <div id="search-form">
         <vue_form id='test_form' @click="formClick">
             <vue_select id="select" name="select" label="select" :data-list="selectData"></vue_select>
@@ -10,17 +11,16 @@
         </vue_form>
         <button @click="getData()">查询</button>
     </div>
+
     <vue_table :data="gridData" :columns="gridColumns"></vue_table>
-    <div class="pagenav">
-        <div class="es-paging-msg">页码:{{page}}/{{Math.ceil(pageTotal/pageSize)}}&nbsp;总共：{{pageTotal}}条</div>
-        <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :pageTotal.sync="pageTotal" ,
-                  :max-link.sync="maxlink" :event-name="changePage"></zpagenav>
-    </div>
+
+    <vue_paging :page="page" :page-size="pageSize" :page-total="pageTotal" event-name="changePage"></vue_paging>
 </template>
 <script type="text/javascript">
     var vue_table = require('../widget/vue_table.vue')
     var vueUtil = require('../util/vue-util.vue').methods
     var vue_form = require('bundle?lazy!./../widget/vue_form.vue')
+    var vue_paging = require('bundle?lazy!./../widget/vue_paging.vue')
     module.exports = {
         data: function () {
             return {
@@ -101,7 +101,8 @@
         },
         components: {
             vue_table,
-            vue_form
+            vue_form,
+            vue_paging
         },
         ready: function () {
             this.getData()
