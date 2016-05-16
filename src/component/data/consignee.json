@@ -1,1 +1,38 @@
-[{"dataText":"艾博金电气制造(深圳)有限公司","dataValue":"1592"},{"dataText":"鞍钢钢材配送（合肥）有限公司","dataValue":"1565"},{"dataText":"东莞华贸实业发展有限公司","dataValue":"1589"},{"dataText":"东莞市恒镒钢铁有限公司","dataValue":"1580"},{"dataText":"东莞市联润金属材料有限公司","dataValue":"1600"},{"dataText":"东莞市兴隆金属实业有限公司","dataValue":"1566"},{"dataText":"佛山市华全电气照明有限公司","dataValue":"1577"},{"dataText":"佛山市顺德区乐骏贸易有限公司","dataValue":"1591"},{"dataText":"佛山市顺德区顺丰物资供应有限公司","dataValue":"1569"}]
+[
+  {
+    "dataText": "艾博金电气制造(深圳)有限公司",
+    "dataValue": "1592"
+  },
+  {
+    "dataText": "鞍钢钢材配送（合肥）有限公司",
+    "dataValue": "1565"
+  },
+  {
+    "dataText": "东莞华贸实业发展有限公司",
+    "dataValue": "1589"
+  },
+  {
+    "dataText": "东莞市恒镒钢铁有限公司",
+    "dataValue": "1580"
+  },
+  {
+    "dataText": "东莞市联润金属材料有限公司",
+    "dataValue": "1600"
+  },
+  {
+    "dataText": "东莞市兴隆金属实业有限公司",
+    "dataValue": "1566"
+  },
+  {
+    "dataText": "佛山市华全电气照明有限公司",
+    "dataValue": "1577"
+  },
+  {
+    "dataText": "佛山市顺德区乐骏贸易有限公司",
+    "dataValue": "1591"
+  },
+  {
+    "dataText": "佛山市顺德区顺丰物资供应有限公司",
+    "dataValue": "1569"
+  }
+]

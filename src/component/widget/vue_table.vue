@@ -9,7 +9,7 @@
         </thead>
         <tbody>
         <tr v-for="entry in data">
-            <td v-for="item in columns">
+            <td v-for="item in columns" class="{{}}">
                 {{entry[item.key]}}
             </td>
         </tr>
@@ -33,6 +33,8 @@
         word-break: keep-all;
         white-space: nowrap;
         text-align: center;
+        border-right: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
     }
     .sticky-enabled th,
     .sticky-thead th{
@@ -41,6 +43,9 @@
         white-space: nowrap;
         height: 28px;
         text-align: center;
+    }
+    .vue-form {
+        float: left;
     }
 
 </style>

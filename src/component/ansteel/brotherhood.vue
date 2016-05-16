@@ -44,7 +44,6 @@
                 transition.next(JSON.parse(localStorage.getItem(transition.to.query.currentPage))||null)//把数据赋值给data
             },
             activate: function (transition) {
-                //可检验是否登录
                 console.log(transition)
                 transition.next()
             },

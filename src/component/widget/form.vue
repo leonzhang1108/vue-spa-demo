@@ -8,6 +8,7 @@
             console.log('init')
             Vue.component('vue_select',require('bundle?lazy!./vue_select.vue'))
             Vue.component('vue_input',require('bundle?lazy!./vue_input.vue'))
+            Vue.component('vue_filter',require('bundle?lazy!./vue_filter.vue'))
         }
     }
 </script>

@@ -10,6 +10,7 @@
                         })
                     }
                 })
+                console.log(items)
                 var es_input_form = function (conf) {
                     conf = conf || {}
                     if (!conf.el) {

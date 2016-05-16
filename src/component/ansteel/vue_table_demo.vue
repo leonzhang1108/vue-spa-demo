@@ -2,16 +2,17 @@
     <vue_form id='test_form' @click="formClick">
         <vue_select id="select" name="select" label="test_select" :data-list="selectData"></vue_select>
         <vue_input id="input" name="input" label="test_input"></vue_input>
+        <vue_filter id="filter" name="filter" label="test_filter" :data="filterChange"></vue_filter>
         <div style="clear: both;"></div>
     </vue_form>
-    <button @click="getData">查询</button>
+    <button @click="getData()">查询</button>
     <vue_table
             :data="gridData"
             :columns="gridColumns">
     </vue_table>
     <div class="pagenav">
         <zpagenav :page.sync="page" , :page-size.sync="pageSize" , :total.sync="pageTotal" ,
-                  :max-link.sync="maxlink" :event-name="eventName"></zpagenav>
+                  :max-link.sync="maxlink" :event-name="changePage"></zpagenav>
     </div>
 </template>
 <script type="text/javascript">
@@ -36,35 +37,50 @@
                     {key: 'productOrderNumber', name: '订单号'},
                     {key: 'receivingWay', name: '交货方式'},
                     {key: 'vesselVoyageInfo', name: '船名航次'},
-                    {key: 'weightValue', name: '重量'},
+                    {key: 'weightValue', name: '重量'}
                 ],
                 gridData: [],
                 pageSize: 10,
                 page: 1,
                 pageTotal: 1000,
                 maxlink: 10,
-                eventName: "custom"
+                changePage: "changePage"
             }
         },
         events: {
-            custom: function (page) {
+            changePage: function (page) {
                 this.getData(page)
             }
         },
         computed: {
             selectData: function () {
-                return [{display:'全部',value: 'all'},{display:'是',value: 'yes'},{display:'否',value: 'no'}]
+                return [{display: '全部', value: 'all'}, {display: '是', value: 'yes'}, {display: '否', value: 'no'}]
+            },
+            filterChange: function () {
+                vueUtil.ajax_get({
+                    requestData: {},
+                    url: 'src/component/data/vesselName.json',
+                    scope: this,
+                    cbFunc: function (res) {
+                        var dataResT = res.data;
+                        var arrayResT = [];
+                        for (var i = 0; i < dataResT.length; i++) {
+                            arrayResT[i] = dataResT[i].name;
+                        }
+                        ES.ui.get('filter').data =  arrayResT
+                    }
+                })
             }
         },
         methods: {
             getData: function (page) {
                 this.formClick()
-                var requestData = ES.ui.get('test_form').get_value()||{}
+                var requestData = ES.ui.get('test_form').get_value() || {}
                 console.log(page)
-                console.log('doajax')
+                console.log('doAjax')
                 vueUtil.ajax_get({
                     requestData: requestData,
-                    page: page||1,
+                    page: page || 1,
                     url: 'src/component/data/table-page2.json',
                     scope: this,
                     cbFunc: function (response) {
@@ -74,7 +90,7 @@
             },
             formClick: function () {
                 vueUtil.form({
-                    el:'test_form',
+                    el: 'test_form',
                     component: this
                 })
             }
@@ -85,7 +101,7 @@
         },
         ready: function () {
             this.getData()
-//            setTimeout(this.formClick, 0)
+            setTimeout(this.formClick, 0)
         }
     }
 </script>
