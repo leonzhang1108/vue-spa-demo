@@ -44,7 +44,8 @@
                     {key: 'productOrderNumber', name: '订单号'},
                     {key: 'receivingWay', name: '交货方式'},
                     {key: 'vesselVoyageInfo', name: '船名航次'},
-                    {key: 'weightValue', name: '重量'}
+                    {key: 'weightValue', name: '重量'},
+                    {key: 'operation', name: '操作'}
                 ],
                 gridData: [],
                 pageSize: 25,
@@ -89,16 +90,21 @@
                 var requestData = ES.ui.get('test_form').get_value() || {}
                 requestData.page = page || 1
                 requestData.pageSize = this.pageSize
-
                 vueUtil.ajax_get({
                     requestData: requestData,
                     url: 'src/component/data/table-page2.json',
                     scope: this,
                     cbFunc: function (response) {
+                        $.each(response.data.items, function (_, item) {
+                            item.operation = '<a class="btn operation">操作</a>'
+                        })
                         this.gridData = response.data.items
                         this.pageTotal = response.data.items.length
                     }
                 })
+            },
+            operationClick: function (value) {
+                console.log(value)
             },
             formClick: function () {
                 vueUtil.form({
@@ -115,6 +121,9 @@
         ready: function () {
             this.getData()
             setTimeout(this.formClick, 0)
+            $('.content-table').delegate('.operation','click', function () {
+                console.log(this)
+            })
         }
     }
 </script>

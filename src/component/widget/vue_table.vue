@@ -11,7 +11,7 @@
             <tbody>
             <tr v-for="entry in data">
                 <td v-for="item in columns" class="{{}}">
-                    {{entry[item.key]}}
+                    {{{entry[item.key]}}}
                 </td>
             </tr>
             </tbody>

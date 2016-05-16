@@ -134,10 +134,10 @@ function headSticker(Scope, sortObj) {
                 }
             })
 
-            var tableContent = $('.content-table')
-            tableContent.css({
-                height: tableContent.outerHeight() - 30
-            })
+            // var tableContent = $('.content-table')
+            // tableContent.css({
+            //     height: tableContent.outerHeight() - 30
+            // })
         }
     })
 }
