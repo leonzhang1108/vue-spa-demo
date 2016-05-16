@@ -18,6 +18,7 @@
 <script>
     var storeAction =  require('../../../js/vuex/shell/actions')
     var addTabMenu = storeAction.addTabMenu
+    var getMenus = storeAction.getMenus
     module.exports = {
         vuex: {
             getters: {
@@ -26,13 +27,17 @@
                 }
             },
             actions: {
-                addTabMenu
+                addTabMenu,
+                getMenus
             }
         },
         route: {
             activate: function (transition) {
                 console.log(transition)
             }
+        },
+        ready: function () {
+            this.getMenus()
         }
     }
 </script>

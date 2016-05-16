@@ -1,5 +1,5 @@
 <template>
-    <vue_form id='test_form' @click="formClick" v-my-directive="">
+    <vue_form id='test_form' @click="formClick">
         <vue_select id="select" name="select" label="test_select" :data-list="dataList"></vue_select>
         <vue_input id="input" name="input" label="test_input"></vue_input>
         <div style="clear: both;"></div>

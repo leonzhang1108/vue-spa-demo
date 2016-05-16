@@ -8,31 +8,7 @@ var state = {
     currentMenu: 'index',
     tabId: 0,
     tabMenus: [],
-    menus: [{
-        path: '/services',
-        name: '货物状态'
-    }, {
-        path: '/home',
-        name: '货物详情'
-    }, {
-        path: '/about',
-        name: '账单制作'
-    }, {
-        path: '/calender',
-        name: '账单详情'
-    }, {
-        path: '/test',
-        name: '场站物料管理'
-    }, {
-        path: '/table',
-        name: '表格demo'
-    }, {
-        path: '/form',
-        name: '表单DEMO'
-    }, {
-        path: '/forbidden',
-        name: 'forbidden'
-    }]
+    menus: []
 };
 
 var mutations = {
@@ -69,6 +45,9 @@ var mutations = {
             }
         })
         console.log(state.tabMenus)
+    },
+    GET_MENUS:function GET_MENUS(state, menus) {
+        state.menus = menus
     }
 };
 
