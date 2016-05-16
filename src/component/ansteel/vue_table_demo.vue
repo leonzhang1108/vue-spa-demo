@@ -96,15 +96,12 @@
                     scope: this,
                     cbFunc: function (response) {
                         $.each(response.data.items, function (_, item) {
-                            item.operation = '<a class="btn operation">操作</a>'
+                            item.operation = '<a class="btn operation" data-index="'+_+'">操作</a>'
                         })
                         this.gridData = response.data.items
                         this.pageTotal = response.data.items.length
                     }
                 })
-            },
-            operationClick: function (value) {
-                console.log(value)
             },
             formClick: function () {
                 vueUtil.form({
@@ -121,8 +118,14 @@
         ready: function () {
             this.getData()
             setTimeout(this.formClick, 0)
+            //绑定操作点击事件
             $('.content-table').delegate('.operation','click', function () {
-                console.log(this)
+                $(this).data('index')
+                interfacePort.confirm({
+                    title:'test_confirm',
+                    innerHTML: $(this).data('index'),
+                    auto_hide:false
+                })
             })
         }
     }

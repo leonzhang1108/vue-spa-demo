@@ -98,3 +98,80 @@ select {
     font-size: 13px;
     line-height: 26px;
 }
+.popup {
+    border: 5px solid #ccc;
+    border-radius: 4px;
+    height: auto;
+    display: none;
+    background: #fff;
+    z-index: 10002;
+    position: fixed;
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 0 0 20px 0;
+}
+.shadow {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%;
+    position: fixed;
+    z-index: 10000;
+    color: #000;
+    font-size: 30px;
+    text-align: center;
+    background: url(http://www.eshippinggateway.com/ansteel/../common/img/shadow.png) repeat;
+}
+.popup-title {
+    text-align: left;
+    background: #428bca;
+    padding: 10px;
+    color: #fff;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+.popup-content {
+    padding: 0 10px;
+    overflow: hidden;
+}
+.popup-common {
+    max-height: 500px;
+    overflow-x: hidden;
+    min-height: 20px;
+}
+.main-popup-error {
+    text-align: center;
+}
+.popup .popup-btn {
+    padding-top: 15px;
+    width: auto;
+    height: 45px;
+    margin: 0 auto;
+}
+.popup-close {
+    font-size: 1.2rem;
+    color: #c1c1c1;
+    float: right;
+    margin: 0;
+    color: #fff;
+}
+.btn-reverse:hover, .btn-reverse:active, .btn-reverse:visited, .btn-reverse:focus {
+    background: #fff;
+    color: #438cd9;
+    border-color: #438cd9;
+}
+.popup-btn .btn{
+    line-height: 26px ;
+    font-size: 13px ;
+    border: 1px solid #1081c7 ;
+    border-radius: 2px ;
+    padding: 0px 10px;
+    color: #fff;
+    background-color: #1081c7;
+}
+.popup-btn .btn-reverse {
+    background: #fff;
+    color: #438cd9;
+
+}
