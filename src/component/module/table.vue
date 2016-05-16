@@ -94,7 +94,6 @@
         border-top: 0px;
         background-color: #F9FAFB;
         overflow: auto;
-        margin-top: -30px;
     }
 
     .pagenav nav.zpagenav {

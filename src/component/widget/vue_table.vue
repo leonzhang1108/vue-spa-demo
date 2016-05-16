@@ -1,21 +1,22 @@
 <template>
-    <table>
-        <thead>
-        <tr>
-            <th v-for="item in columns">
-                {{item.name}}
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="entry in data">
-            <td v-for="item in columns" class="{{}}">
-                {{entry[item.key]}}
-            </td>
-        </tr>
-        </tbody>
-    </table>
-
+    <div class="content-table">
+        <table>
+            <thead>
+            <tr>
+                <th v-for="item in columns">
+                    {{item.name}}
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="entry in data">
+                <td v-for="item in columns" class="{{}}">
+                    {{entry[item.key]}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </template>
 <script type="text/javascript">
     module.exports = {
@@ -46,6 +47,9 @@
     }
     .vue-form {
         float: left;
+    }
+    .content-table {
+        overflow-y: hidden;
     }
 
 </style>

@@ -33,11 +33,13 @@
         if ($('thead:visible').eq(0).offset()) {
             //活动表头
             var affix = $('.sticky-thead:visible')
+
             //滚动高度
             var scrollHeight = $(window).scrollTop()
             var theadHeight = $('thead:visible').eq(0).offset().top
             var listHeight = $('.sticky-enabled:visible').outerHeight()
             var topNavHeight = $('#shell-header').outerHeight() + $('.vue-breadcrumb').outerHeight()
+            //表身高度
             if (scrollHeight + topNavHeight > theadHeight) {
                 affix.css({
                     top: scrollHeight - listHeight - theadHeight + topNavHeight

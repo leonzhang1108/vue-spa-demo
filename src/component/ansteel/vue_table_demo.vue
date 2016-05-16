@@ -7,9 +7,12 @@
             <vue_input id="date" class="date" cls="date" name="date" label="date"></vue_input>
             <vue_filter id="filter" name="filter" label="filter" :data="filterChange"></vue_filter>
             <vue_date_interval id="test_date_input" name="date_input_from" label="date_input" after_labels="['&nbsp;至&nbsp;']" to_name="date_input_to" ></vue_date_interval>
+            <div class="btn-form">
+                <button @click="getData()">查询</button>
+            </div>
             <div style="clear: both;"></div>
         </vue_form>
-        <button @click="getData()">查询</button>
+
     </div>
 
     <vue_table :data="gridData" :columns="gridColumns"></vue_table>

@@ -33,3 +33,27 @@
         </div>
     </div>
 </template>
+<style>
+    .pagination {
+        margin: 0;
+    }
+    .pagenav {
+        border: 0 ;
+    }
+    .es-paging-msg {
+        float: left;
+        width: 30%;
+        height: 40px;
+        text-align: right;
+        line-height: 40px;
+    }
+    .pagenav nav.zpagenav{
+        float: left;
+        width: 40%;
+    }
+    .es-selectPageSize {
+        float: left;
+        height: 40px;
+        line-height: 40px;
+    }
+</style>
