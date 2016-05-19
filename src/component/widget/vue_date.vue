@@ -1,5 +1,5 @@
 <script>
-    require('jquery-ui/themes/base/jquery-ui.css');
+
     module.exports = {
         props: ["id", "lableName","name","className"],
         data:function (){

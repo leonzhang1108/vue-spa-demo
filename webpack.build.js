@@ -35,10 +35,10 @@ var plugins = [
         filename: "index.html",
         hash: true
     }),
-    new ExtractTextPlugin("style.css", {
-        allChunks: true,
-        disable: false
-    }),
+    //new ExtractTextPlugin("style.css", {
+    //    allChunks: true,
+    //    disable: false
+    //}),
     new webpack.ProvidePlugin({
         $: 'jquery',
         jQuery: 'jquery'
@@ -74,7 +74,7 @@ module.exports = function(projectName){
         module: {
             loaders: [
                 {test: /\.vue$/, loader: 'vue'},
-                {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!cssnext-loader!autoprefixer") },
+                {test: /\.css$/, loader: "style-loader!css-loader!autoprefixer" },
                 {test: /\.(jpg|png|gif)$/, loader: "file-loader?name=images/[name].[hash].[ext]" },
                 {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&minetype=application/font-woff" },
                 {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" },
@@ -84,11 +84,11 @@ module.exports = function(projectName){
                 //{ test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015&presets[]=react'
             ]
         },
-        vue: {
-            loaders: {
-                css: ExtractTextPlugin.extract("css")
-            }
-        },
+        //vue: {
+        //    loaders: {
+        //        css: ExtractTextPlugin.extract("css")
+        //    }
+        //},
         resolve: {
             extension: ['', '.js'],
             alias: {}

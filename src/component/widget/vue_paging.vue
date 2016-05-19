@@ -29,6 +29,7 @@
                 <option value="100">100</option>
             </select>
         </div>
+        <div style="clear: both;"></div>
     </div>
 </template>
 <style>
@@ -37,7 +38,9 @@
     }
 
     .pagenav {
-        border: 0;
+        background-color: #fff;
+        padding: 25px 0px;
+        margin-bottom: 30px;
     }
 
     .es-paging-msg {
@@ -51,6 +54,7 @@
     .pagenav nav.zpagenav {
         float: left;
         width: 40%;
+        text-align: center;
     }
 
     .es-selectPageSize {

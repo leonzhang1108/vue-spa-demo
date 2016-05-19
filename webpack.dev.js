@@ -21,10 +21,10 @@ var plugins = [
         hash: true
     }),
 
-    new ExtractTextPlugin("style.css", {
-        allChunks: true,
-        disable: false
-    }),
+    //new ExtractTextPlugin("style.css", {
+    //    allChunks: true,
+    //    disable: false
+    //}),
 
     new webpack.ProvidePlugin({
         jQuery: 'jquery',
@@ -48,7 +48,7 @@ module.exports = {
     module: {
         loaders: [
             {test: /\.vue$/, loader: 'vue-loader'},
-            {test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!cssnext-loader")},
+            {test: /\.css$/, loader: "style-loader!css-loader!autoprefixer" },
             {test: /\.(jpg|png|gif)$/, loader: "file-loader?name=images/[name].[hash].[ext]"},
             {test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,loader: "url-loader?limit=10000&minetype=application/font-woff"},
             {test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader"},
@@ -57,15 +57,32 @@ module.exports = {
             //{test: /\.js?$/, exclude: /node_modules/, loader: 'babel-loader?presets[]=es2015'}
         ]
     },
-    vue: {
-        loaders: {
-            css: ExtractTextPlugin.extract("css")
-        }
-    },
+    //vue: {
+    //    loaders: {
+    //        css: ExtractTextPlugin.extract("css")
+    //    }
+    //},
     resolve: {
         extension: ['', '.js'],
         alias: {}
     },
     plugins: plugins,
-    devtool: '#source-map'
+    devtool: '#source-map',
+    jshint: {
+        // any jshint option http://www.jshint.com/docs/options/
+        // i. e.
+        camelcase: true,
+
+        // jshint errors are displayed by default as warnings
+        // set emitErrors to true to display them as errors
+        emitErrors: false,
+
+        // jshint to not interrupt the compilation
+        // if you want any file with jshint errors to fail
+        // set failOnHint to true
+        failOnHint: false,
+
+        // custom reporter function
+        reporter: function(errors) { }
+    }
 };

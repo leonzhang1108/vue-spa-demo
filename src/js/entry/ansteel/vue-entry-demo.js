@@ -8,14 +8,16 @@ global.Vuex = require('vuex')
 global.ES = require('../../common/ui.js')
 global.localStorage = window.localStorage
 global.interfacePort = require('../../interface/interface.js');
+global.jQuery = require('jquery');
+//global.grid = require('../../common/pqgrid.min.js');
 require("jquery-ui")
 require("../../../css/vue-demo.css");
 require("../../../css/style.css");
 require("bootstrap/dist/css/bootstrap.css");
-require("bootstrap/dist/css/bootstrap.css");
 require("bootstrap/dist/js/bootstrap.min.js");
 require("font-awesome-webpack");
 require('purecss/build/pure-min.css');
+require('jquery-ui/themes/base/jquery-ui.css');
 //国际化
 global.localize = {};
 require.ensure(['vue', 'vue-router', 'vue-i18n', 'vuex', 'vue-form'], function (require) {

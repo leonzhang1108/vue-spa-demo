@@ -28,7 +28,7 @@
 </script>
 <style>
 
-    .sticky-enabled td{
+    .content-table td{
         padding: 5px;
         font-size: 12px;
         word-break: keep-all;
@@ -37,8 +37,7 @@
         border-right: 1px solid #ddd;
         border-bottom: 1px solid #ddd;
     }
-    .sticky-enabled th,
-    .sticky-thead th{
+    .content-table th{
         font-size: 13px;
         word-break: keep-all;
         white-space: nowrap;

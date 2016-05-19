@@ -28,4 +28,7 @@
     #search-form .input-wrap {
         margin-bottom: 10px;
     }
+    .vue-form label {
+        width: 100px;
+    }
 </style>
